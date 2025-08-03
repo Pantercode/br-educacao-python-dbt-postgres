@@ -1,45 +1,65 @@
-version: "3.9"
-
 services:
-  airflow:
+  pg_airflow_meta:
+    image: postgres:14-alpine
+    container_name: pg_airflow_meta
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - pg_airflow_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  airflow_inep:
     image: apache/airflow:2.9.2
     container_name: airflow_inep
+    depends_on:
+      pg_airflow_meta:
+        condition: service_healthy
+    env_file: .env
     environment:
-      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__CORE__LOAD_EXAMPLES=False
-      - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
-      - POSTGRES_HOST=${POSTGRES_HOST}
-      - POSTGRES_PORT=${POSTGRES_PORT}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - DBT_PROFILES_DIR=/opt/airflow/dbt
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__FERNET_KEY: ${FERNET_KEY}
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@pg_airflow_meta:5432/airflow
+      DBT_PROFILES_DIR: /opt/airflow/dbt
     volumes:
       - ./dags:/opt/airflow/dags
       - ./inep:/opt/airflow/inep
       - ./dbt:/opt/airflow/dbt
-    command: >
-      bash -lc "pip install --no-cache-dir psycopg2-binary requests pandas python-dotenv dbt-postgres==1.7.14 &&
-                airflow db init &&
-                airflow users create --username admin --firstname Marcell --lastname Oliveira --role Admin --email marcelloliveirafull@gmail.com --password admin || true &&
-                airflow webserver & sleep 5 && airflow scheduler"
+      - airflow_logs:/opt/airflow/logs
+    command: |
+      bash -lc "
+        pip install --no-cache-dir psycopg2-binary requests pandas python-dotenv dbt-postgres==1.7.14 &&
+        (airflow db check || airflow db init) &&
+        airflow db migrate &&
+        airflow users create --username admin --firstname Marcell --lastname Oliveira --role Admin --email marcelloliveirafull@gmail.com --password 'Am@ndl@2021' || true &&
+        airflow webserver -p 8080 &
+        sleep 10 &&
+        exec airflow scheduler
+      "
     ports:
       - "8080:8080"
     restart: unless-stopped
 
-  dbt-cli:
+  dbt_cli_inep:
     image: python:3.10-slim
     container_name: dbt_cli_inep
     working_dir: /work
+    env_file: .env
     environment:
-      - DBT_PROFILES_DIR=/work/dbt
-      - POSTGRES_HOST=${POSTGRES_HOST}
-      - POSTGRES_PORT=${POSTGRES_PORT}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      DBT_PROFILES_DIR: /work/dbt
     volumes:
       - ./dbt:/work/dbt
-    command: bash -lc "pip install --no-cache-dir dbt-postgres==1.7.14 && tail -f /dev/null"
+    command: >
+      bash -lc "pip install --upgrade pip && pip install --no-cache-dir dbt-postgres==1.7.14 && tail -f /dev/null"
     restart: unless-stopped
+
+volumes:
+  pg_airflow_data:
+  airflow_logs:
