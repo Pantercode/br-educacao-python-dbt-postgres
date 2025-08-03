@@ -9,7 +9,6 @@ services:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
-      # Variáveis para o script e para o dbt
       - POSTGRES_HOST=${POSTGRES_HOST}
       - POSTGRES_PORT=${POSTGRES_PORT}
       - POSTGRES_DB=${POSTGRES_DB}
@@ -23,7 +22,7 @@ services:
     command: >
       bash -lc "pip install --no-cache-dir psycopg2-binary requests pandas python-dotenv dbt-postgres==1.7.14 &&
                 airflow db init &&
-                airflow users create --username admin --firstname admin --lastname local --role Admin --email admin@local --password admin || true &&
+                airflow users create --username admin --firstname Marcell --lastname Oliveira --role Admin --email marcelloliveirafull@gmail.com --password admin || true &&
                 airflow webserver & sleep 5 && airflow scheduler"
     ports:
       - "8080:8080"
