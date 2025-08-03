@@ -1,0 +1,11 @@
+name: 'censo_inep'
+version: '1.0.0'
+profile: 'censo_inep'
+
+models:
+  censo_inep:
+    +materialized: view
+    silver:
+      +schema: silver
+    gold:
+      +schema: gold

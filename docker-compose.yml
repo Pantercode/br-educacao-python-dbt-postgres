@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  airflow:
+    image: apache/airflow:2.9.2
+    container_name: airflow_inep
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
+      # Variáveis para o script e para o dbt
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DBT_PROFILES_DIR=/opt/airflow/dbt
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./inep:/opt/airflow/inep
+      - ./dbt:/opt/airflow/dbt
+    command: >
+      bash -lc "pip install --no-cache-dir psycopg2-binary requests pandas python-dotenv dbt-postgres==1.7.14 &&
+                airflow db init &&
+                airflow users create --username admin --firstname admin --lastname local --role Admin --email admin@local --password admin || true &&
+                airflow webserver & sleep 5 && airflow scheduler"
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  dbt-cli:
+    image: python:3.10-slim
+    container_name: dbt_cli_inep
+    working_dir: /work
+    environment:
+      - DBT_PROFILES_DIR=/work/dbt
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - ./dbt:/work/dbt
+    command: bash -lc "pip install --no-cache-dir dbt-postgres==1.7.14 && tail -f /dev/null"
+    restart: unless-stopped
