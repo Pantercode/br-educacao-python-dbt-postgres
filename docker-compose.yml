@@ -1,29 +1,9 @@
 version: "3.8"
 
 services:
-  airflow-db:
-    image: postgres:14
-    container_name: airflow-db
-    environment:
-      - POSTGRES_USER=${AIRFLOW_DB_USER}
-      - POSTGRES_PASSWORD=${AIRFLOW_DB_PASSWORD}
-      - POSTGRES_DB=${AIRFLOW_DB_NAME}
-    volumes:
-      - ./pg_airflow_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - airflow-net
-
   airflow:
     image: apache/airflow:2.9.2
     container_name: airflow
-    depends_on:
-      airflow-db:
-        condition: service_healthy
     env_file:
       - ./.env
     environment:
@@ -31,7 +11,8 @@ services:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__WEBSERVER__DEFAULT_UI_TIMEZONE=America/Sao_Paulo
       - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow-db:5432/${AIRFLOW_DB_NAME}
+      # Conecta no PostgreSQL 9.3 LOCAL (fora do Docker)
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@host.docker.internal:5432/${AIRFLOW_DB_NAME}
       - PIP_ADDITIONAL_REQUIREMENTS=dbt-core==1.7.14 dbt-postgres==1.7.14 psycopg2-binary==2.9.9 requests==2.32.3 PyYAML==6.0.2 pandas==2.2.2
       - DBT_PROFILES_DIR=/opt/dbt/profiles
       - PYTHONPATH=/opt
@@ -44,11 +25,11 @@ services:
       - ./.env:/opt/airflow/.env:ro
     entrypoint: >
       bash -c "
-      echo 'Aguardando PostgreSQL...';
-      while ! pg_isready -h airflow-db -p 5432; do sleep 2; done;
-      echo 'Inicializando banco de dados Airflow...';
+      echo 'Aguardando PostgreSQL 9.3 no host...';
+      while ! pg_isready -h host.docker.internal -p 5432; do sleep 2; done;
+      echo 'Inicializando banco de metadados do Airflow...';
       airflow db upgrade &&
-      airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin &&
+      airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin || true &&
       echo 'Iniciando scheduler e webserver...';
       airflow scheduler & exec airflow webserver
       "
@@ -62,6 +43,8 @@ services:
       - ./.env
     environment:
       - DBT_PROFILES_DIR=/opt/dbt/profiles
+      # Para o dbt também mirar no seu Postgres 9.3
+      - POSTGRES_HOST=host.docker.internal
     volumes:
       - ./dbt:/opt/dbt
       - ./.env:/opt/dbt/.env:ro

@@ -24,3 +24,6 @@ class ClienteAPI:
             yield dados
             page += 1
             time.sleep(self.pausa)
+
+
+
