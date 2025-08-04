@@ -1,9 +1,9 @@
-name: 'censo_inep'
-version: '1.0.0'
-profile: 'censo_inep'
-
+name: br_educacao
+version: 1.0.0
+config-version: 2
+profile: br_educacao_profile
 models:
-  censo_inep:
+  br_educacao:
     +materialized: view
     silver:
       +schema: silver

@@ -1,0 +1,3 @@
+endpoints:
+  - recurso: ideb/escolas.json
+    tabela_silver: api_ideb_escolas
