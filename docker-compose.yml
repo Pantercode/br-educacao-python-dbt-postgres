@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   airflow-db:
     image: postgres:14
@@ -9,7 +11,7 @@ services:
     volumes:
       - ./pg_airflow_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -42,11 +44,13 @@ services:
       - ./.env:/opt/airflow/.env:ro
     entrypoint: >
       bash -c "
+      echo 'Aguardando PostgreSQL...';
       while ! pg_isready -h airflow-db -p 5432; do sleep 2; done;
+      echo 'Inicializando banco de dados Airflow...';
       airflow db upgrade &&
       airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin &&
-      airflow scheduler &
-      exec airflow webserver
+      echo 'Iniciando scheduler e webserver...';
+      airflow scheduler & exec airflow webserver
       "
     networks:
       - airflow-net
