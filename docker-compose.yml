@@ -1,3 +1,5 @@
+version: '3.9'
+
 services:
   pg_airflow_meta:
     image: postgres:14-alpine

@@ -40,8 +40,8 @@ IBGE_API_MUNICIPIOS = "https://servicodados.ibge.gov.br/api/v1/localidades/munic
 PG_USER = os.getenv("PGUSER", "postgres")
 PG_HOST = os.getenv("PGHOST", "localhost")
 PG_PORT = int(os.getenv("PGPORT", "5432"))
-PG_DB   = os.getenv("PGDATABASE", "CENSO_INEP")
-PG_PASS = os.getenv("PGPASSWORD", None)
+PG_DB   = os.getenv("PGDATABASE", "censo")
+PG_PASS = os.getenv("PGPASSWORD", "123")
 
 RAW_TABLE    = "inep_api_raw"
 TBL_IDEB_ESC = "api_ideb_escolas"
@@ -294,15 +294,19 @@ def crawl_ideb_escola_id(conn, sleep: float):
 
 def main():
     parser = argparse.ArgumentParser(description="Coleta da API do INEP (IDEB) -> Postgres 9.3")
-    parser.add_argument("--mode", choices=["SAFE","FULL"], default="SAFE", help="SAFE: por UF; FULL: UF + rede + município")
+    parser.add_argument("--mode", choices=["SAFE", "FULL"], default="SAFE", help="SAFE: por UF; FULL: UF + rede + município")
     parser.add_argument("--sleep", type=float, default=0.2, help="Segundos entre requisições")
     args = parser.parse_args()
 
-    if not PG_PASS:
-        import getpass
-        PG_PASS = getpass.getpass("Senha Postgres: ")
-
-    conn = psycopg2.connect(host=PG_HOST, port=PG_PORT, dbname=PG_DB, user=PG_USER, password=PG_PASS)
+    # Remove interação por getpass — senha já definida automaticamente acima
+    conn = psycopg2.connect(
+        host=PG_HOST,
+        port=PG_PORT,
+        dbname=PG_DB,
+        user=PG_USER,
+        password=PG_PASS
+    )
+    
     with conn.cursor() as cur:
         cur.execute("SET client_encoding TO 'UTF8';")
     conn.commit()
@@ -320,3 +324,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
