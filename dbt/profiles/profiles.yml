@@ -1,4 +1,4 @@
-inep_postgres:          
+inep_postgres:
   target: dev
   outputs:
     dev:
@@ -6,7 +6,7 @@ inep_postgres:
       host: "{{ env_var('POSTGRES_HOST') }}"
       user: "{{ env_var('POSTGRES_USER') }}"
       password: "{{ env_var('POSTGRES_PASSWORD') }}"
-      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      port: "{{ env_var('POSTGRES_PORT', 5432) }}"
       dbname: "{{ env_var('POSTGRES_DB') }}"
-      schema: public      
+      schema: public
       threads: 2

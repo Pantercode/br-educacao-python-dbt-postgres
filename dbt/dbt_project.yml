@@ -1,0 +1,22 @@
+name: br_educacao
+version: 1.0.0
+config-version: 2
+
+profile: inep_postgres  
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+
+models:
+  br_educacao:
+    +materialized: view
+    raw:
+      +schema: bronze
+    silver:
+      +schema: silver
+    gold:
+      +schema: gold
+
+seeds:
+  br_educacao:
+    +schema: bronze

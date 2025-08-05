@@ -1,169 +1,180 @@
-import os
-import time
+# -------------------- inep/run_pipeline.py (usar DataStore CKAN primeiro) --------------------
+# - Lê o datapackage do portal MG
+# - Para cada resource com 'id', usa CKAN Data API (datastore_search) e pagina todos os registros
+# - Se o resource não estiver no DataStore, tenta baixar o arquivo pelo 'path' com fallback de separadores
+
 import subprocess
 from pathlib import Path
-from typing import List, Dict, Tuple
-
+from urllib.parse import urljoin, quote
+import math
+import csv
 import pandas as pd
 import requests
-import yaml
-from dotenv import load_dotenv
 
-# ------------------------------------------------------------------ #
-# Configuração
-# ------------------------------------------------------------------ #
-load_dotenv()
-
-API_BASE = os.getenv("ENDERECO_BASE_API", "http://api.dadosabertosinep.org/v1")
-
-# Tabela de redes aceitas
-REDES = ["municipal", "estadual", "federal", "publica"]
-
-# Endpoints IBGE
-IBGE_API_ESTADOS = "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
-IBGE_API_MUNICIPIOS_UF = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/{uf}/municipios"
-
-# Paginação
-TAMANHO_LOTE = int(os.getenv("TAMANHO_LOTE", "1000"))
-PAUSA_API = float(os.getenv("PAUSA_API", "0.3"))
-
-# Caminhos
 BASE_DIR = Path(__file__).resolve().parents[1]
-ENDPOINTS_FILE = Path(__file__).parent / "config" / "endpoints.yaml"
 SEEDS_DIR = BASE_DIR / "dbt" / "seeds"
+SEEDS_DIR.mkdir(parents=True, exist_ok=True)
 
-# ------------------------------------------------------------------ #
-# Funções utilitárias
-# ------------------------------------------------------------------ #
-def obter_ufs() -> List[str]:
-    """Retorna lista de UFs via API do IBGE (fallback para lista fixa)."""
-    fallback = [
-        "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA",
-        "MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN",
-        "RS","RO","RR","SC","SP","SE","TO"
-    ]
-    try:
-        resp = requests.get(IBGE_API_ESTADOS, timeout=30)
-        resp.raise_for_status()
-        return sorted([e["sigla"] for e in resp.json()])
-    except Exception:
-        return fallback
+CKAN_API = "https://dados.mg.gov.br/api/3/action"
+DATAPACKAGE_URL = "https://dados.mg.gov.br/dataset/9150f9a1-8465-4a02-921f-e852b65e2d64/resource/920d0e17-73f4-4788-bdb8-7d09b6a4ccdd/download/datapackage.json"
 
-def obter_municipios_por_uf(uf: str) -> List[int]:
-    """Retorna lista de códigos IBGE (inteiros) dos municípios de uma UF."""
-    url = IBGE_API_MUNICIPIOS_UF.format(uf=uf)
-    try:
-        resp = requests.get(url, timeout=60)
-        resp.raise_for_status()
-        return [m["id"] for m in resp.json()]
-    except Exception:
-        return []
 
-def fetch_endpoint(path: str) -> pd.DataFrame:
-    """Baixa dados paginados de um endpoint genérico da API INEP."""
-    page = 1
-    dados = []
+def datastore_all_records(resource_id: str, page_size: int = 10000):
+    """Itera por todas as páginas do DataStore e rende registros."""
+    start = 0
+    total = None
+    session = requests.Session()
     while True:
-        url = f"{API_BASE}/{path}?page={page}&limit={TAMANHO_LOTE}"
-        r = requests.get(url, timeout=60)
+        params = {
+            "resource_id": resource_id,
+            "limit": page_size,
+            "offset": start,
+        }
+        r = session.get(f"{CKAN_API}/datastore_search", params=params, timeout=120)
         r.raise_for_status()
-        lote = r.json()
-        if not lote:
+        data = r.json()
+        if not data.get("success"):
+            raise RuntimeError(f"datastore_search falhou: {data}")
+        res = data["result"]
+        if total is None:
+            total = res.get("total")
+        records = res.get("records", [])
+        if not records:
             break
-        dados.extend(lote)
-        if len(lote) < TAMANHO_LOTE:
+        yield from records
+        start += len(records)
+        if total is not None and start >= total:
             break
-        page += 1
-        time.sleep(PAUSA_API)
-    return pd.DataFrame(dados)
 
-# ------------------------------------------------------------------ #
-# Pipeline principal
-# ------------------------------------------------------------------ #
+
+def try_download_file(full_url: str, encoding: str | None = None) -> pd.DataFrame:
+    """Baixa um arquivo e tenta ler como CSV com sniff/fallback; se JSON, normaliza."""
+    resp = requests.get(full_url, timeout=300)
+    resp.raise_for_status()
+
+    # Se vier HTML, aborta (é página de erro, não dado)
+    ctype = resp.headers.get("Content-Type", "").lower()
+    if "text/html" in ctype:
+        raise RuntimeError(f"Conteúdo HTML em {full_url}")
+
+    content = resp.content
+    # Tenta JSON primeiro se o content-type sugerir
+    if "json" in ctype or full_url.endswith(".json"):
+        return pd.json_normalize(resp.json())
+
+    # Tenta CSV com autodetecção de separador
+    text = content.decode(encoding or "utf-8", errors="replace")
+    for sep in [",", ";", "\t", "|"]:
+        try:
+            return pd.read_csv(pd.io.common.StringIO(text), sep=sep, engine="python", quoting=csv.QUOTE_MINIMAL)
+        except Exception:
+            continue
+    # Sniffer como último recurso
+    try:
+        sniffer = csv.Sniffer()
+        dialect = sniffer.sniff(text.splitlines()[0])
+        return pd.read_csv(pd.io.common.StringIO(text), sep=dialect.delimiter)
+    except Exception as e:
+        raise RuntimeError(f"Falha ao interpretar arquivo {full_url}: {e}")
+
+
+def candidate_file_urls(dataset_id: str, resource_id: str, path: str) -> list[str]:
+    """Gera URLs candidatas para baixar arquivo quando DataStore não está ativo."""
+    filename = path.split("/")[-1]
+    base_download = f"https://dados.mg.gov.br/dataset/{dataset_id}/resource/{resource_id}/download/"
+    return [
+        urljoin(base_download, path),       # .../download/data/bolsas.csv
+        urljoin(base_download, filename),   # .../download/bolsas.csv
+    ]
+
+
 def main():
-    # ------------------------------------------------------------------ #
-    # Preparação
-    # ------------------------------------------------------------------ #
-    with open(ENDPOINTS_FILE, "r", encoding="utf-8") as f:
-        endpoints_cfg = yaml.safe_load(f)
+    print(f"Lendo datapackage: {DATAPACKAGE_URL}")
+    dp = requests.get(DATAPACKAGE_URL, timeout=120)
+    dp.raise_for_status()
+    pkg = dp.json()
+    resources = pkg.get("resources", [])
+    if not resources:
+        print("Nenhum resource no datapackage.")
+        return
 
-    SEEDS_DIR.mkdir(parents=True, exist_ok=True)
-    ufs = obter_ufs()
+    # dataset/resource IDs a partir da URL do datapackage
+    # (útil para montar URLs de download)
+    import re
+    m = re.search(r"/dataset/([^/]+)/resource/([^/]+)/download/", DATAPACKAGE_URL)
+    dataset_id = m.group(1) if m else ""
+    resource_id_from_url = m.group(2) if m else ""
 
-    # Cache de municípios para evitar chamadas repetidas
-    cache_municipios: Dict[str, List[int]] = {}
+    for r in resources:
+        name = (r.get("name") or "recurso").strip().replace(" ", "_")
+        rid = r.get("id")  # GUID do CKAN DataStore
+        path = r.get("path") or r.get("url") or ""
+        fmt = (r.get("format") or "").lower()
+        encoding = r.get("encoding") or "utf-8"
 
-    for ep in endpoints_cfg.get("endpoints", []):
-        name: str = ep["name"]
-        path_template: str = ep["path"]
-        per_uf: bool = ep.get("per_uf", False)
-        per_municipio: bool = ep.get("per_municipio", False)
-        per_rede: bool = ep.get("per_rede", False)
+        print(f"Processando resource: {name} (id={rid}, fmt={fmt}, path={path})")
+        df = None
 
-        # Gera todas as combinações necessárias
-        combos: List[Tuple[str, int, str]] = [(None, None, None)]  # (uf, municipio, rede)
-        if per_municipio:
-            combos.clear()
-            for uf in ufs:
-                if uf not in cache_municipios:
-                    cache_municipios[uf] = obter_municipios_por_uf(uf)
-                for municipio_cod in cache_municipios[uf]:
-                    combos.append((uf, municipio_cod, None))
-                    if per_rede:
-                        combos.extend((uf, municipio_cod, rede) for rede in REDES)
-        elif per_uf and per_rede:
-            combos = [(uf, None, rede) for uf in ufs for rede in REDES]
-        elif per_uf:
-            combos = [(uf, None, None) for uf in ufs]
-        elif per_rede:
-            combos = [(None, None, rede) for rede in REDES]
+        # 1) Tenta DataStore se houver 'id'
+        if rid:
+            # checa se o DataStore está ativo para este resource
+            try:
+                rs = requests.get(f"{CKAN_API}/resource_show", params={"id": rid}, timeout=60)
+                rs.raise_for_status()
+                meta = rs.json()
+                active = meta.get("result", {}).get("datastore_active", False)
+            except Exception:
+                active = False
 
-        # Acumula resultados de todas as combinações
-        frames = []
+            if active:
+                print(f"→ Baixando via DataStore (paginado) id={rid}")
+                # stream em pedaços para evitar memória alta
+                rows = []
+                for rec in datastore_all_records(rid, page_size=10000):
+                    rows.append(rec)
+                    # flush em lotes grandes
+                    if len(rows) >= 200000:
+                        part = pd.DataFrame(rows)
+                        rows.clear()
+                        out = SEEDS_DIR / f"{name}.csv"
+                        # append incremental
+                        header = not out.exists()
+                        part.to_csv(out, index=False, encoding="utf-8", mode="a", header=header)
+                        print(f"  ↳ flush parcial: {len(part)} linhas → {out}")
+                # resto
+                if rows:
+                    part = pd.DataFrame(rows)
+                    out = SEEDS_DIR / f"{name}.csv"
+                    header = not out.exists()
+                    part.to_csv(out, index=False, encoding="utf-8", mode="a", header=header)
+                    print(f"  ↳ flush final: {len(part)} linhas → {out}")
+                df = None  # já gravado em partes
+            else:
+                print("⚠️ DataStore inativo; tentando download direto do arquivo…")
 
-        for uf, municipio_cod, rede in combos:
-            path = path_template
-            if uf:
-                path = path.replace("{uf}", uf)
-            if municipio_cod is not None:
-                path = path.replace("{municipio}", str(municipio_cod))
-            if rede:
-                path = path.replace("{rede}", rede)
+        # 2) Fallback: tentar baixar arquivo pelo path/url
+        if df is None and path:
+            # tenta URLs candidatas com base no dataset/resource da própria URL do datapackage
+            for url in candidate_file_urls(dataset_id or "", rid or resource_id_from_url or "", path):
+                try:
+                    print(f"Tentando {url}")
+                    df = try_download_file(url, encoding=encoding)
+                    break
+                except Exception as e:
+                    print(f"   falhou: {e}")
+                    df = None
 
-            ident = "_".join(filter(None, [name, uf or "", str(municipio_cod) if municipio_cod else "", rede or ""]))
-            print(f"→ Extraindo {ident} …")
-
-            df = fetch_endpoint(path)
-            if df.empty:
-                print(f"   ⚠️ Sem dados ({ident})")
-                continue
-
-            # Anexa colunas de contexto
-            if uf:
-                df["uf"] = uf
-            if municipio_cod is not None:
-                df["municipio_cod"] = municipio_cod
-            if rede:
-                df["rede"] = rede
-
-            frames.append(df)
-
-        if not frames:
-            print(f"⏭ Nenhum dado para {name}")
+        if df is None:
+            print(f"❌ Não foi possível obter dados de {name}")
             continue
 
-        final_df = pd.concat(frames, ignore_index=True).astype(str)
-        csv_path = SEEDS_DIR / f"{name}.csv"
-        final_df.to_csv(csv_path, index=False, encoding="utf-8")
-        print(f"{name}.csv gerado — {len(final_df)} linhas.")
+        out = SEEDS_DIR / f"{name}.csv"
+        df.to_csv(out, index=False, encoding="utf-8")
+        print(f"✅ Salvo: {out} ({len(df)} linhas)")
 
-    # ------------------------------------------------------------------ #
-    # dbt
-    # ------------------------------------------------------------------ #
-    print("Executando dbt seed & run …")
-    subprocess.run(["dbt", "seed"], check=True)
-    subprocess.run(["dbt", "run"], check=True)
-    print("Pipeline concluído!")
+    # roda dbt (usa profile 'inep_postgres')
+    subprocess.run(["dbt", "seed", "--project-dir", "dbt", "--profiles-dir", "/opt/app/dbt/profiles", "--profile", "inep_postgres"], check=True)
+    subprocess.run(["dbt", "run",  "--project-dir", "dbt", "--profiles-dir", "/opt/app/dbt/profiles", "--profile", "inep_postgres"], check=True)
 
 if __name__ == "__main__":
     main()

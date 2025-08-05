@@ -1,8 +1,5 @@
 endpoints:
-- name: matriculas
-  path: matriculas/{uf}/{rede}
-  per_uf: true
-  per_rede: true
-- name: escolas
-  path: escolas/{municipio}
-  per_municipio: true
+  - name: bolsas_mg
+    list_url: "https://dados.mg.gov.br/dataset/9150f9a1-8465-4a02-921f-e852b65e2d64/resource/920d0e17-73f4-4788-bdb8-7d09b6a4ccdd/download/datapackage.json"
+    fallback_path: "mocks/bolsas_mg_mock.json"
+
