@@ -21,7 +21,6 @@ SEEDS_DIR = BASE_DIR / "dbt" / "seeds"
 SEEDS_DIR.mkdir(parents=True, exist_ok=True)
 
 CKAN_API = "https://dados.mg.gov.br/api/3/action"
-# ID do dataset (UUID que aparece na sua URL)
 DATASET_ID = "9150f9a1-8465-4a02-921f-e852b65e2d64"
 
 
@@ -74,7 +73,7 @@ def try_download_file(url: str, encoding: Optional[str] = None) -> pd.DataFrame:
                 engine="python",
                 quoting=csv.QUOTE_MINIMAL,
                 dtype="string",
-                keep_default_na=False,   # não transforma "NA" em NaN
+                keep_default_na=False,
                 on_bad_lines="skip",
             )
             return df
@@ -105,7 +104,6 @@ def safe_name(s: str) -> str:
 
 
 def main():
-    # 1) Descobre os resources desse dataset
     print(f"CKAN package_show id={DATASET_ID}")
     pkg = requests.get(f"{CKAN_API}/package_show", params={"id": DATASET_ID}, timeout=120)
     pkg.raise_for_status()
@@ -119,6 +117,12 @@ def main():
 
     for r in resources:
         r_name = safe_name(r.get("name") or r.get("id") or "recurso")
+
+        # 🔥 IGNORA METADADOS OU JSONS NÃO TABULARES
+        if "datapackage" in r_name:
+            print(f"⚠️  Ignorado resource não tabular: {r_name}")
+            continue
+
         r_id = r.get("id")
         r_url = r.get("url") or ""
         r_fmt = (r.get("format") or "").lower()
@@ -129,13 +133,11 @@ def main():
 
         df: Optional[pd.DataFrame] = None
 
-        # 2) Tenta DataStore (melhor opção)
         if r_id and r_active:
             rows = list(datastore_all_records(r_id, page_size=10000))
             if rows:
                 df = pd.DataFrame(rows).astype("string")
 
-        # 3) Fallback: baixa o arquivo do resource.url
         if df is None and r_url:
             df = try_download_file(r_url, encoding=r_enc)
 
@@ -147,15 +149,25 @@ def main():
         df.to_csv(out, index=False, encoding="utf-8")
         print(f"✅ Salvo: {out} ({len(df)} linhas)")
 
-    # 4) dbt
+    # Executa DBT no container com os caminhos corretos
+try:
     subprocess.run(
         ["dbt", "seed", "--project-dir", "dbt", "--profiles-dir", "/opt/app/dbt/profiles", "--profile", "inep_postgres"],
         check=True,
     )
+except subprocess.CalledProcessError as e:
+    print(f"\n🚨 Erro ao rodar `dbt seed`:\n{e}\n")
+    exit(1)
+
+try:
     subprocess.run(
         ["dbt", "run", "--project-dir", "dbt", "--profiles-dir", "/opt/app/dbt/profiles", "--profile", "inep_postgres"],
         check=True,
     )
+except subprocess.CalledProcessError as e:
+    print(f"\n🚨 Erro ao rodar `dbt run`:\n{e}\n")
+    exit(1)
+
 
 
 if __name__ == "__main__":

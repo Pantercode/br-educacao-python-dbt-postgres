@@ -207,3 +207,128 @@ Runtime Error
 [0m22:40:09.378173 [debug] [MainThread]: Command `dbt seed` failed at 22:40:09.377915 after 0.15 seconds
 [0m22:40:09.381247 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f8f00abd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f8eb3e2d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f933be8d0>]}
 [0m22:40:09.384254 [debug] [MainThread]: Flushing usage events
+[0m22:58:30.332849 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd5c3549050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd5c354b450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd5c354a0d0>]}
+
+
+============================== 22:58:30.341770 | abf3ac77-59b5-4047-bcdb-9bc79e022761 ==============================
+[0m22:58:30.341770 [info ] [MainThread]: Running with dbt=1.7.14
+[0m22:58:30.344725 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'dbt/logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m22:58:30.356155 [error] [MainThread]: Encountered an error:
+Runtime Error
+  
+  dbt encountered an error while trying to read your profiles.yml file.
+  
+  Runtime Error
+    Syntax error near line 9
+    ------------------------------
+    6  |       host: "{{ env_var('POSTGRES_HOST') }}"
+    7  |       user: "{{ env_var('POSTGRES_USER') }}"
+    8  |       password: "{{ env_var('POSTGRES_PASSWORD') }}"
+    9  |       port: {{ env_var('POSTGRES_PORT', '5432') | int }}
+    10 |       dbname: "{{ env_var('POSTGRES_DB') }}"
+    11 |       schema: public
+    12 |       threads: 2
+    
+    Raw Error:
+    ------------------------------
+    while parsing a flow mapping
+      in "<unicode string>", line 9, column 14
+    did not find expected ',' or '}'
+      in "<unicode string>", line 9, column 47
+  
+[0m22:58:30.360439 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_wall_clock_time": 0.100428596, "process_user_time": 2.057275, "process_kernel_time": 0.216555, "process_mem_max_rss": "218408", "process_in_blocks": "46752", "command_success": false, "process_out_blocks": "0"}
+[0m22:58:30.363868 [debug] [MainThread]: Command `dbt seed` failed at 22:58:30.363467 after 0.10 seconds
+[0m22:58:30.367199 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd5c3563f50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd5c3563dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd5c3563310>]}
+[0m22:58:30.373022 [debug] [MainThread]: Flushing usage events
+[0m23:03:36.602233 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5b64c01c10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5b64df4a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5b64eee190>]}
+
+
+============================== 23:03:36.612626 | 1f0d4ff1-a546-4ed5-b340-1b8f123b5bc1 ==============================
+[0m23:03:36.612626 [info ] [MainThread]: Running with dbt=1.7.14
+[0m23:03:36.617909 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'dbt/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'send_anonymous_usage_stats': 'True'}
+[0m23:03:36.661193 [error] [MainThread]: Encountered an error:
+Runtime Error
+  
+  dbt encountered an error while trying to read your profiles.yml file.
+  
+  Runtime Error
+    Syntax error near line 9
+    ------------------------------
+    6  |       host: "{{ env_var('POSTGRES_HOST') }}"
+    7  |       user: "{{ env_var('POSTGRES_USER') }}"
+    8  |       password: "{{ env_var('POSTGRES_PASSWORD') }}"
+    9  |       port: {{ env_var('POSTGRES_PORT', '5432') | int }}
+    10 |       dbname: "{{ env_var('POSTGRES_DB') }}"
+    11 |       schema: public
+    12 |       threads: 2
+    
+    Raw Error:
+    ------------------------------
+    while parsing a flow mapping
+      in "<unicode string>", line 9, column 14
+    did not find expected ',' or '}'
+      in "<unicode string>", line 9, column 47
+  
+[0m23:03:36.671310 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_wall_clock_time": 0.2056023, "process_user_time": 2.125438, "process_kernel_time": 0.151097, "process_mem_max_rss": "218184", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m23:03:36.680099 [debug] [MainThread]: Command `dbt seed` failed at 23:03:36.679747 after 0.22 seconds
+[0m23:03:36.685023 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5b64eee4d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5b64c0f990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5b69442ad0>]}
+[0m23:03:36.690424 [debug] [MainThread]: Flushing usage events
+[0m23:05:33.743411 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f73857fe690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f73855125d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7385512010>]}
+
+
+============================== 23:05:33.750362 | b9f6c416-6686-46e5-b887-5008823d3b4e ==============================
+[0m23:05:33.750362 [info ] [MainThread]: Running with dbt=1.7.14
+[0m23:05:33.753084 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'dbt/logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'send_anonymous_usage_stats': 'True'}
+[0m23:05:33.769221 [error] [MainThread]: Encountered an error:
+Runtime Error
+  
+  dbt encountered an error while trying to read your profiles.yml file.
+  
+  Runtime Error
+    Syntax error near line 9
+    ------------------------------
+    6  |       host: "{{ env_var('POSTGRES_HOST') }}"
+    7  |       user: "{{ env_var('POSTGRES_USER') }}"
+    8  |       password: "{{ env_var('POSTGRES_PASSWORD') }}"
+    9  |       port: {{ env_var('POSTGRES_PORT', '5432') | int }}
+    10 |       dbname: "{{ env_var('POSTGRES_DB') }}"
+    11 |       schema: public
+    12 |       threads: 2
+    
+    Raw Error:
+    ------------------------------
+    while parsing a flow mapping
+      in "<unicode string>", line 9, column 14
+    did not find expected ',' or '}'
+      in "<unicode string>", line 9, column 47
+  
+[0m23:05:33.772152 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_wall_clock_time": 0.10426459, "process_user_time": 1.974954, "process_kernel_time": 0.130991, "process_mem_max_rss": "101596", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m23:05:33.778339 [debug] [MainThread]: Command `dbt seed` failed at 23:05:33.777946 after 0.11 seconds
+[0m23:05:33.784091 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7385511ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7385511590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7389d5ead0>]}
+[0m23:05:33.786271 [debug] [MainThread]: Flushing usage events
+[0m23:12:07.525447 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ce9944bd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ce99a3510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ce9946850>]}
+
+
+============================== 23:12:07.542286 | edae722f-6227-4976-a97f-d3abe7773b9f ==============================
+[0m23:12:07.542286 [info ] [MainThread]: Running with dbt=1.7.14
+[0m23:12:07.551028 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'dbt/logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m23:12:08.136867 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Credentials in profile "inep_postgres", target "dev" invalid: '5432' is not of type 'integer'
+[0m23:12:08.149042 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_wall_clock_time": 0.87039214, "process_user_time": 2.733907, "process_kernel_time": 0.188888, "process_mem_max_rss": "106644", "process_in_blocks": "9744", "command_success": false, "process_out_blocks": "0"}
+[0m23:12:08.160669 [debug] [MainThread]: Command `dbt seed` failed at 23:12:08.159758 after 0.88 seconds
+[0m23:12:08.168760 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ce9951210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ce99698d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7cee1aaa50>]}
+[0m23:12:08.178756 [debug] [MainThread]: Flushing usage events
+[0m23:18:19.951134 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f518e899950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f518e89a050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f518e899390>]}
+
+
+============================== 23:18:19.963916 | c6d6ab8d-a96a-4a61-bf20-b1b175e5c536 ==============================
+[0m23:18:19.963916 [info ] [MainThread]: Running with dbt=1.7.14
+[0m23:18:19.968476 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'dbt/logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m23:18:20.187194 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Credentials in profile "inep_postgres", target "dev" invalid: '5432' is not of type 'integer'
+[0m23:18:20.192534 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_wall_clock_time": 0.42424336, "process_user_time": 2.264125, "process_kernel_time": 0.208537, "process_mem_max_rss": "107216", "process_in_blocks": "888", "process_out_blocks": "1144", "command_success": false}
+[0m23:18:20.195879 [debug] [MainThread]: Command `dbt seed` failed at 23:18:20.195406 after 0.43 seconds
+[0m23:18:20.199373 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f518e878650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f518e862a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f518eb8e6d0>]}
+[0m23:18:20.202423 [debug] [MainThread]: Flushing usage events
