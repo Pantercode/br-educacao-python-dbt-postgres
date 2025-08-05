@@ -12,7 +12,16 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    command: sleep infinity  # Impede execução automática do pipeline
+    command: >
+      bash -c "
+      apt-get update && \
+      apt-get install -y gcc g++ libpq-dev && \
+      pip install --upgrade pip && \
+      pip install --no-cache-dir -r requirements.txt && \
+      dbt deps --project-dir dbt && \
+      dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres && \
+      dbt run --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres
+      "
 
   dbt-cli:
     image: ghcr.io/dbt-labs/dbt-postgres:1.7.14
@@ -25,6 +34,8 @@ services:
       - ./dbt:/opt/dbt
       - ./.env:/opt/dbt/.env:ro
     working_dir: /opt/dbt
+    entrypoint: ["/bin/sh", "-c"]
+    command: "dbt seed --project-dir /opt/dbt --profiles-dir /opt/dbt/profiles --profile inep_postgres"
 
   postgres:
     image: postgres:9.3
