@@ -1,0 +1,33 @@
+"""Pipeline de extração da API INEP + IBGE com geração de seeds dbt.
+
+Recursos:
+- Placeholders suportados no YAML de endpoints:
+    {uf}          → sigla da Unidade Federativa (Ex: SP)
+    {municipio}   → código IBGE do município (Ex: 3550308)
+    {rede}        → tipo de rede (municipal, estadual, federal, publica)
+
+- Chaves de controle no YAML:
+    per_uf: true/false
+    per_municipio: true/false
+    per_rede: true/false
+
+Exemplo de entrada (inep/config/endpoints.yaml):
+
+```yaml
+endpoints:
+  - name: matriculas
+    path: matriculas/{uf}/{rede}
+    per_uf: true
+    per_rede: true
+
+  - name: escolas
+    path: escolas/{municipio}
+    per_municipio: true
+```
+
+O script grava cada extração em `dbt/seeds/<name>.csv` e em seguida dispara
+`dbt seed` e `dbt run`.
+
+Execute dentro do contêiner `pipeline`:
+    docker compose run --rm pipeline
+"""

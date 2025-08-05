@@ -1,39 +1,26 @@
+version: "3.8"
+
 services:
-  airflow:
-    image: apache/airflow:2.9.2
-    container_name: airflow
+  # ----------------------------------------------
+  # Serviço que executa a extração + dbt
+  pipeline:
+    image: python:3.11-slim
+    container_name: inep-pipeline
     env_file:
       - ./.env
     environment:
-      - AIRFLOW__CORE__LOAD_EXAMPLES=False
-      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__WEBSERVER__DEFAULT_UI_TIMEZONE=America/Sao_Paulo
-      - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
-      # Conecta no PostgreSQL 9.3 LOCAL (fora do Docker)
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@host.docker.internal:5432/${AIRFLOW_DB_NAME}
-      - PIP_ADDITIONAL_REQUIREMENTS=dbt-core==1.7.14 dbt-postgres==1.7.14 psycopg2-binary==2.9.9 requests==2.32.3 PyYAML==6.0.2 pandas==2.2.2
-      - DBT_PROFILES_DIR=/opt/dbt/profiles
-      - PYTHONPATH=/opt
-    ports:
-      - "8080:8080"
+      - DBT_PROFILES_DIR=/opt/app/dbt/profiles
     volumes:
-      - ./dags:/opt/airflow/dags
-      - ./inep:/opt/inep
-      - ./dbt:/opt/dbt
-      - ./.env:/opt/airflow/.env:ro
-    entrypoint: >
+      - ./:/opt/app
+    working_dir: /opt/app
+    command: >
       bash -c "
-      echo 'Aguardando PostgreSQL...';
-      while ! pg_isready -h host.docker.internal -p 5432; do sleep 2; done;
-      echo 'Migrando banco de metadados do Airflow...';
-      airflow db migrate &&
-      airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin || true &&
-      echo 'Iniciando scheduler e webserver...';
-      airflow scheduler & exec airflow webserver --port 8080
+      pip install --no-cache-dir -r requirements.txt &&
+      python inep/run_pipeline.py
       "
-    networks:
-      - airflow-net
 
+  # ----------------------------------------------
+  # Serviço CLI dbt (opcional, para rodar comandos à parte)
   dbt-cli:
     image: ghcr.io/dbt-labs/dbt-postgres:1.7.14
     container_name: dbt-cli
@@ -41,14 +28,29 @@ services:
       - ./.env
     environment:
       - DBT_PROFILES_DIR=/opt/dbt/profiles
-      # Para o dbt também mirar no seu Postgres 9.3
-      - POSTGRES_HOST=host.docker.internal
+      - POSTGRES_HOST=${POSTGRES_HOST}
     volumes:
       - ./dbt:/opt/dbt
       - ./.env:/opt/dbt/.env:ro
     working_dir: /opt/dbt
-    networks:
-      - airflow-net
+
+  # ----------------------------------------------
+  # Serviço do PostgreSQL 9.3
+  postgres:
+    image: postgres:9.3
+    container_name: inep-postgres
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 networks:
-  airflow-net:
+  default:
+    name: inep-net
+
+volumes:
+  postgres_data:

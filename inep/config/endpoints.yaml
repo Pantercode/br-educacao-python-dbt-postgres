@@ -1,3 +1,8 @@
 endpoints:
-  - recurso: ideb/escolas.json
-    tabela_silver: api_ideb_escolas
+- name: matriculas
+  path: matriculas/{uf}/{rede}
+  per_uf: true
+  per_rede: true
+- name: escolas
+  path: escolas/{municipio}
+  per_municipio: true
