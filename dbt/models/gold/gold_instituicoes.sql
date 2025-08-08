@@ -3,10 +3,10 @@
 WITH INSTITUICAO AS (
     SELECT
         id,
-        INITCAP(CAST(instituicaoexecutor_sigla AS TEXT)) AS sigla_instituicao,
-        INITCAP(CAST(instituicaoexecutor_nome  AS TEXT)) AS nome_instituicao,
-        INITCAP(CAST(programa                  AS TEXT)) AS programa
-    FROM {{ REF('silver_bolsas_concedidas') }}
+        INITICAP(CAST(instituicaoexecutor_sigla AS text)) AS sigla_instituicao,
+        INITICAP(CAST(instituicaoexecutor_nome  AS text)) AS nome_instituicao,
+        INITICAP(CAST(programa                  AS text)) AS programa
+    from {{ ref('silver_bolsas_concedidas') }}
 ),
 DEDUP AS (
     SELECT
@@ -16,10 +16,10 @@ DEDUP AS (
         programa,
         ROW_NUMBER() OVER (
             PARTITION BY id
-            ORDER BY COALESCE(sigla_instituicao, nome_instituicao, programa) DESC
+            ORDER BY coalesce(sigla_instituicao, nome_instituicao, programa) DESC
         ) AS rn
     FROM INSTITUICAO
-    WHERE id IS NOT NULL
+    WHERE id is not null
 )
 SELECT
     id,

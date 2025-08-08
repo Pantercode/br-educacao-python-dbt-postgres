@@ -1,6 +1,16 @@
-{{ config(materialized='table', alias='silver_bolsas_concedidas') }}
 
-SELECT
+  
+    
+
+  create  table "censo"."public_silver"."silver_bolsas_concedidas__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+select
     CAST(id AS TEXT)                               as id,
     CAST(ano AS INTEGER)                           as ano,
     CAST(instituicaoexecutor_sigla AS TEXT)        as instituicaoexecutor_sigla,
@@ -8,7 +18,12 @@ SELECT
     CAST(programa AS TEXT)                         as programa,
     CAST(idbolsa AS TEXT)                          as id_bolsa,
     CAST(bolsista AS TEXT)                         as bolsista,
-    CAST(valortotalprevisto as double precision) as valortotalprevisto,
-    TO_DATE(NULLIF(data_disponibilizacao, ''), 'DD/MM/YYYY') as data_disponibilizacao
-FROM {{ ref('raw_bolsas_concedidas') }} 
+    CAST(valortotalprevisto AS DOUBLE PRECISION)   as valor_total_previsto,
+    coalesce(
+        try_cast(data_disponibilizacao AS DATE),
+        try_cast(datadisponibilizacao  AS DATE)
+    )                                              as data_disponibilizacao
+FROM "censo"."public_bronze"."raw_bolsas_concedidas" -- Remova o '.sql' daqui
 WHERE 1 = 1
+  );
+  

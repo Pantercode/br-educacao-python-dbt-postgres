@@ -1,4 +1,4 @@
-{{ config(materialized='table', alias='gold__minha_tabela') }}
+{{ config(materialized='table', alias='gold_fato_bolsa') }}
 
 SELECT
     id,
