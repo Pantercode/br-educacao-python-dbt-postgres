@@ -1,4 +1,4 @@
-{{ config(schema='gold',materialized='table', alias='gold_instituicoes') }}
+
 
 
 
@@ -8,7 +8,7 @@ WITH INSTITUICAO AS (
         INITCAP(CAST(instituicaoexecutora_sigla AS text)) AS sigla_instituicao,
         INITCAP(CAST(instituicaoexecutora_nome   AS text)) AS nome_instituicao,
         INITCAP(CAST(programa                  AS text)) AS programa
-    from {{ ref('silver_bolsas_concedidas') }}
+    from "censo"."silver"."silver_bolsas_concedidas"
 ),
 DEDUP AS (
     SELECT

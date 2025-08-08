@@ -1,9 +1,19 @@
-{{ config(schema='gold',materialized='table', alias='gold_calendario') }}
+
+  
+    
+
+  create  table "censo"."gold"."gold_calendario__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
 WITH LIMITES AS (
   SELECT
     MIN(CAST(data_disponibilizacao AS DATE)) AS data_min,
     MAX(CAST(data_disponibilizacao AS DATE)) AS data_max
-FROM {{ ref('silver_bolsas_concedidas') }}
+FROM "censo"."silver"."silver_bolsas_concedidas"
 ),
 
 DATAS AS (
@@ -71,4 +81,5 @@ CALENDARIO AS (
 
 SELECT * FROM CALENDARIO
 WHERE 1 = 1
-
+  );
+  

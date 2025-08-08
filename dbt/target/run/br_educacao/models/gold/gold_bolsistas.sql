@@ -1,4 +1,14 @@
-{{ config(schema='gold', materialized='table', alias='gold_bolsistas') }}
+
+  
+    
+
+  create  table "censo"."gold"."gold_bolsistas__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
 
 WITH BOLSISTA as (
     SELECT
@@ -12,7 +22,7 @@ WITH BOLSISTA as (
                PARTITION BY id_bolsa
             ORDER BY bolsista
             ) AS rn
-        FROM {{ ref('silver_bolsas_concedidas') }}
+        FROM "censo"."silver"."silver_bolsas_concedidas"
         WHERE bolsista IS NOT NULL
           AND bolsista != ''
           AND id_bolsa IS NOT NULL
@@ -23,4 +33,5 @@ SELECT
     id_bolsa,
     bolsista
 FROM BOLSISTA
-
+  );
+  

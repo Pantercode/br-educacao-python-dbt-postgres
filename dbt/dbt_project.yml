@@ -7,24 +7,22 @@ profile: inep_postgres
 model-paths: ["models"]
 seed-paths:  ["seeds"]
 
-#  1) Todos os seeds vão para o schema bronze
 seeds:
   br_educacao:
-    +schema: bronze            # (Raw via CSV)
+    +schema: bronze
 
-#  2) Regras por pasta em models/
 models:
   br_educacao:
-    +materialized: view        # default se o arquivo estiver solto na raiz
+    +materialized: view
 
-    raw:                       # models/raw/*
+    raw:
       +schema: bronze
-      
+      +materialized: view
 
-    silver:                    # models/silver/*
+    silver:
       +schema: silver
-      +materialized: table     # ⬅ tipagem
+      +materialized: table
 
-    gold:                      # models/gold/*
+    gold:
       +schema: gold
-      +materialized: table     # ⬅ modelo analítico
+      +materialized: table
