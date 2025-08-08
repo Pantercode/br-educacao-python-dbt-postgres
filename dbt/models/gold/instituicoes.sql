@@ -1,16 +1,30 @@
+{{ config(materialized='table', alias='gold_instituicoes') }}
+
 WITH INSTITUICAO AS (
     SELECT
-        CAST(_id AS TEXT) AS id,
+        id,
         INITCAP(CAST(instituicaoexecutor_sigla AS TEXT)) AS sigla_instituicao,
-        INITCAP(CAST(instituicaoexecutor_nome AS TEXT)) AS nome_instituicao,
-        INITCAP(CAST(programa AS TEXT)) AS programa,
+        INITCAP(CAST(instituicaoexecutor_nome  AS TEXT)) AS nome_instituicao,
+        INITCAP(CAST(programa                  AS TEXT)) AS programa
+    FROM {{ REF('silver_bolsas_concedidas') }}
+),
+DEDUP AS (
+    SELECT
+        id,
+        sigla_instituicao,
+        nome_instituicao,
+        programa,
         ROW_NUMBER() OVER (
-            PARTITION BY _id
-            ORDER BY COALESCE(instituicaoexecutor_sigla, instituicaoexecutor_nome, programa) DESC
-        ) AS row_num
-    FROM {{ ref('bolsas-de-cotas-concedidas') }}
-    WHERE 1 = 1
+            PARTITION BY id
+            ORDER BY COALESCE(sigla_instituicao, nome_instituicao, programa) DESC
+        ) AS rn
+    FROM INSTITUICAO
+    WHERE id IS NOT NULL
 )
-SELECT *
-FROM INSTITUICAO
-WHERE row_num = 1;
+SELECT
+    id,
+    sigla_instituicao,
+    nome_instituicao,
+    programa
+FROM DEDUP
+WHERE rn = 1

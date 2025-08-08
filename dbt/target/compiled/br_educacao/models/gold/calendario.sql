@@ -1,9 +1,8 @@
-{{ config(materialized='table', alias='gold_calendario') }}
 WITH LIMITES AS (
   SELECT
     MIN(CAST(datadisponibilizacao AS DATE)) AS data_min,
     MAX(CAST(datadisponibilizacao AS DATE)) AS data_max
-FROM {{ ref('silver_bolsas_concedidas') }}
+  FROM "censo"."public_bronze"."bolsas-de-cotas-concedidas"
 ),
 
 DATAS AS (

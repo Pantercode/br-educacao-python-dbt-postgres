@@ -358,3 +358,1447 @@ Runtime Error
 [0m23:59:06.559388 [debug] [MainThread]: Command `dbt seed` failed at 23:59:06.558873 after 0.36 seconds
 [0m23:59:06.563051 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7eb636bf50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ebab66950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7eb6393350>]}
 [0m23:59:06.570311 [debug] [MainThread]: Flushing usage events
+[0m15:26:26.049905 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e22244e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e22244a10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e22244fd0>]}
+
+
+============================== 15:26:26.062124 | b75077a0-8705-458c-945a-3e01a1a9d642 ==============================
+[0m15:26:26.062124 [info ] [MainThread]: Running with dbt=1.7.14
+[0m15:26:26.065436 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'debug': 'False', 'warn_error': 'None', 'log_path': 'dbt/logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt deps --project-dir dbt', 'send_anonymous_usage_stats': 'True'}
+[0m15:26:26.188315 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b75077a0-8705-458c-945a-3e01a1a9d642', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e22126210>]}
+[0m15:26:26.196103 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m15:26:26.226902 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m15:26:26.232543 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.34975243, "process_user_time": 2.782152, "process_kernel_time": 0.182104, "process_mem_max_rss": "103520", "process_in_blocks": "50216", "process_out_blocks": "0"}
+[0m15:26:26.238591 [debug] [MainThread]: Command `dbt deps` succeeded at 15:26:26.238132 after 0.36 seconds
+[0m15:26:26.244847 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e22532510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e2209fcd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e2680ec50>]}
+[0m15:26:26.249069 [debug] [MainThread]: Flushing usage events
+[0m15:26:30.073684 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f900cb5e750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f900c9b3390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f900cb5df50>]}
+
+
+============================== 15:26:30.079345 | fa365375-ca7d-441d-8c29-1799938e1d34 ==============================
+[0m15:26:30.079345 [info ] [MainThread]: Running with dbt=1.7.14
+[0m15:26:30.081730 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'dbt/logs', 'profiles_dir': '/opt/app/dbt/profiles', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m15:26:30.318286 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Credentials in profile "inep_postgres", target "dev" invalid: 'database' is a required property
+[0m15:26:30.321916 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_wall_clock_time": 0.40901074, "process_user_time": 2.236448, "process_kernel_time": 0.089857, "process_mem_max_rss": "106948", "process_in_blocks": "9688", "command_success": false, "process_out_blocks": "0"}
+[0m15:26:30.324580 [debug] [MainThread]: Command `dbt seed` failed at 15:26:30.324381 after 0.41 seconds
+[0m15:26:30.326794 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f900cb5d5d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f900c9a67d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f90111ee8d0>]}
+[0m15:26:30.328886 [debug] [MainThread]: Flushing usage events
+[0m16:11:04.927688 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5a7cf8ce10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5a7cf8eb50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5a7cf8ee90>]}
+
+
+============================== 16:11:04.941953 | cdecc45b-ce74-442a-b6f1-4de41b461f4f ==============================
+[0m16:11:04.941953 [info ] [MainThread]: Running with dbt=1.7.14
+[0m16:11:04.946369 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'dbt/logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt deps --project-dir dbt', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m16:11:05.068236 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'cdecc45b-ce74-442a-b6f1-4de41b461f4f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5a7cfefc90>]}
+[0m16:11:05.076656 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m16:11:05.100145 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m16:11:05.109901 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.30753872, "process_user_time": 2.366231, "process_kernel_time": 0.191597, "process_mem_max_rss": "103548", "process_in_blocks": "51600", "process_out_blocks": "0"}
+[0m16:11:05.113928 [debug] [MainThread]: Command `dbt deps` succeeded at 16:11:05.113619 after 0.31 seconds
+[0m16:11:05.117354 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5a8171ab50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5a817de8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5a817de750>]}
+[0m16:11:05.120937 [debug] [MainThread]: Flushing usage events
+[0m16:11:08.894346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd9fbbae0d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd9fd1e6950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd9fba02690>]}
+
+
+============================== 16:11:08.902381 | e9dd6bfe-3e0f-48a5-91fd-91e535f49282 ==============================
+[0m16:11:08.902381 [info ] [MainThread]: Running with dbt=1.7.14
+[0m16:11:08.906605 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'dbt/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m16:11:09.285713 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e9dd6bfe-3e0f-48a5-91fd-91e535f49282', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd9fb9ed3d0>]}
+[0m16:11:09.355008 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e9dd6bfe-3e0f-48a5-91fd-91e535f49282', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd9fb19fa10>]}
+[0m16:11:09.360778 [info ] [MainThread]: Registered adapter: postgres=1.7.14
+[0m16:11:09.404571 [debug] [MainThread]: checksum: b411d081b927cdacab5285aa7376d1e0bf7d3f712815bc6d31ac551dc80fb5fe, vars: {}, profile: inep_postgres, target: , version: 1.7.14
+[0m16:11:09.430145 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:11:09.438294 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'e9dd6bfe-3e0f-48a5-91fd-91e535f49282', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd9fb1d8e50>]}
+[0m16:11:11.289126 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found two resources with the database representation ""censo"."public_bronze"."bolsas-de-cotas-concedidas"".
+  dbt cannot create two resources with identical database representations. To fix this,
+  change the configuration of one of these resources:
+  - model.br_educacao.bolsas-de-cotas-concedidas (models/raw/bolsas-de-cotas-concedidas.sql)
+  - seed.br_educacao.bolsas-de-cotas-concedidas (seeds/bolsas-de-cotas-concedidas.csv)
+[0m16:11:11.292448 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_wall_clock_time": 2.559097, "process_user_time": 3.245875, "process_kernel_time": 0.284014, "process_mem_max_rss": "119556", "process_in_blocks": "12208", "command_success": false, "process_out_blocks": "0"}
+[0m16:11:11.298260 [debug] [MainThread]: Command `dbt seed` failed at 16:11:11.298002 after 2.56 seconds
+[0m16:11:11.300453 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fda0023ea50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fda0023e8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd9fbba3f90>]}
+[0m16:11:11.303042 [debug] [MainThread]: Flushing usage events
+[0m16:19:25.237159 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe5dd75a710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe5dd75b510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe5dd9f6110>]}
+
+
+============================== 16:19:25.249064 | c974281c-e918-486b-9481-4a1b747fdb8d ==============================
+[0m16:19:25.249064 [info ] [MainThread]: Running with dbt=1.7.14
+[0m16:19:25.253036 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'dbt/logs', 'debug': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt deps --project-dir dbt', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m16:19:25.396774 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c974281c-e918-486b-9481-4a1b747fdb8d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe5dd5f5ad0>]}
+[0m16:19:25.406085 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m16:19:25.450540 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m16:19:25.461286 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.37920317, "process_user_time": 2.316132, "process_kernel_time": 0.267641, "process_mem_max_rss": "103432", "process_in_blocks": "51600", "process_out_blocks": "0"}
+[0m16:19:25.467744 [debug] [MainThread]: Command `dbt deps` succeeded at 16:19:25.467137 after 0.39 seconds
+[0m16:19:25.474519 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe5dd767990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe5dd767890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe5e1e92b10>]}
+[0m16:19:25.481741 [debug] [MainThread]: Flushing usage events
+[0m16:19:28.827856 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f590e2b6790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f590e10b550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f590f8050d0>]}
+
+
+============================== 16:19:28.835401 | 39264a4e-25a4-4411-b086-bf8c52608891 ==============================
+[0m16:19:28.835401 [info ] [MainThread]: Running with dbt=1.7.14
+[0m16:19:28.838962 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'dbt/logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m16:19:29.201920 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '39264a4e-25a4-4411-b086-bf8c52608891', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f590d5178d0>]}
+[0m16:19:29.269586 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '39264a4e-25a4-4411-b086-bf8c52608891', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f590e0eb6d0>]}
+[0m16:19:29.274339 [info ] [MainThread]: Registered adapter: postgres=1.7.14
+[0m16:19:29.308648 [debug] [MainThread]: checksum: b411d081b927cdacab5285aa7376d1e0bf7d3f712815bc6d31ac551dc80fb5fe, vars: {}, profile: inep_postgres, target: , version: 1.7.14
+[0m16:19:29.898142 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 1 files added, 0 files changed.
+[0m16:19:29.900016 [debug] [MainThread]: Partial parsing: added file: br_educacao://models/raw/bolsas_concedidas.sql
+[0m16:19:29.901659 [debug] [MainThread]: Partial parsing: deleted file: br_educacao://models/raw/bolsas-de-cotas-concedidas.sql
+[0m16:19:30.096678 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '39264a4e-25a4-4411-b086-bf8c52608891', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f590d160c90>]}
+[0m16:19:30.192125 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '39264a4e-25a4-4411-b086-bf8c52608891', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f590cd55490>]}
+[0m16:19:30.195857 [info ] [MainThread]: Found 6 models, 1 seed, 0 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[0m16:19:30.199254 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '39264a4e-25a4-4411-b086-bf8c52608891', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f590d59e910>]}
+[0m16:19:30.206859 [info ] [MainThread]: 
+[0m16:19:30.211117 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m16:19:30.215495 [debug] [ThreadPool]: Acquiring new postgres connection 'list_censo'
+[0m16:19:30.241025 [debug] [ThreadPool]: Using postgres connection "list_censo"
+[0m16:19:30.246904 [debug] [ThreadPool]: On list_censo: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:19:30.250021 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:19:30.294163 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.0 seconds
+[0m16:19:30.299190 [debug] [ThreadPool]: On list_censo: Close
+[0m16:19:30.305045 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_censo, now create_censo_public_bronze)
+[0m16:19:30.310115 [debug] [ThreadPool]: Creating schema "database: "censo"
+schema: "public_bronze"
+"
+[0m16:19:30.322932 [debug] [ThreadPool]: Using postgres connection "create_censo_public_bronze"
+[0m16:19:30.326955 [debug] [ThreadPool]: On create_censo_public_bronze: BEGIN
+[0m16:19:30.331046 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:19:30.340499 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m16:19:30.344613 [debug] [ThreadPool]: Using postgres connection "create_censo_public_bronze"
+[0m16:19:30.348862 [debug] [ThreadPool]: On create_censo_public_bronze: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "create_censo_public_bronze"} */
+create schema if not exists "public_bronze"
+[0m16:19:30.357630 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.0 seconds
+[0m16:19:30.362800 [debug] [ThreadPool]: On create_censo_public_bronze: COMMIT
+[0m16:19:30.366865 [debug] [ThreadPool]: Using postgres connection "create_censo_public_bronze"
+[0m16:19:30.370381 [debug] [ThreadPool]: On create_censo_public_bronze: COMMIT
+[0m16:19:30.377971 [debug] [ThreadPool]: SQL status: COMMIT in 0.0 seconds
+[0m16:19:30.383116 [debug] [ThreadPool]: On create_censo_public_bronze: Close
+[0m16:19:30.392204 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_censo_public_bronze, now list_censo_public_gold)
+[0m16:19:30.394511 [debug] [ThreadPool]: Acquiring new postgres connection 'list_censo_public_silver'
+[0m16:19:30.397002 [debug] [ThreadPool]: Acquiring new postgres connection 'list_censo_public_bronze'
+[0m16:19:30.411753 [debug] [ThreadPool]: Using postgres connection "list_censo_public_gold"
+[0m16:19:30.418438 [debug] [ThreadPool]: Using postgres connection "list_censo_public_silver"
+[0m16:19:30.426413 [debug] [ThreadPool]: Using postgres connection "list_censo_public_bronze"
+[0m16:19:30.430810 [debug] [ThreadPool]: On list_censo_public_gold: BEGIN
+[0m16:19:30.434871 [debug] [ThreadPool]: On list_censo_public_silver: BEGIN
+[0m16:19:30.439135 [debug] [ThreadPool]: On list_censo_public_bronze: BEGIN
+[0m16:19:30.443210 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:19:30.447156 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:19:30.451238 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:19:30.462664 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m16:19:30.464902 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m16:19:30.467703 [debug] [ThreadPool]: Using postgres connection "list_censo_public_gold"
+[0m16:19:30.468467 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m16:19:30.472158 [debug] [ThreadPool]: Using postgres connection "list_censo_public_silver"
+[0m16:19:30.475935 [debug] [ThreadPool]: On list_censo_public_gold: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo_public_gold"} */
+select
+      'censo' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_gold'
+    union all
+    select
+      'censo' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_gold'
+    union all
+    select
+      'censo' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_gold'
+  
+[0m16:19:30.479498 [debug] [ThreadPool]: Using postgres connection "list_censo_public_bronze"
+[0m16:19:30.483154 [debug] [ThreadPool]: On list_censo_public_silver: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo_public_silver"} */
+select
+      'censo' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_silver'
+    union all
+    select
+      'censo' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_silver'
+    union all
+    select
+      'censo' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_silver'
+  
+[0m16:19:30.490424 [debug] [ThreadPool]: On list_censo_public_bronze: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo_public_bronze"} */
+select
+      'censo' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_bronze'
+    union all
+    select
+      'censo' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_bronze'
+    union all
+    select
+      'censo' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_bronze'
+  
+[0m16:19:30.507055 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m16:19:30.508044 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m16:19:30.508762 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m16:19:30.512637 [debug] [ThreadPool]: On list_censo_public_gold: ROLLBACK
+[0m16:19:30.518533 [debug] [ThreadPool]: On list_censo_public_bronze: ROLLBACK
+[0m16:19:30.525446 [debug] [ThreadPool]: On list_censo_public_silver: ROLLBACK
+[0m16:19:30.532704 [debug] [ThreadPool]: On list_censo_public_gold: Close
+[0m16:19:30.535964 [debug] [ThreadPool]: On list_censo_public_bronze: Close
+[0m16:19:30.539484 [debug] [ThreadPool]: On list_censo_public_silver: Close
+[0m16:19:30.556316 [debug] [MainThread]: Using postgres connection "master"
+[0m16:19:30.560476 [debug] [MainThread]: On master: BEGIN
+[0m16:19:30.564207 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:19:30.572655 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m16:19:30.576464 [debug] [MainThread]: Using postgres connection "master"
+[0m16:19:30.580522 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m16:19:30.602925 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m16:19:30.609260 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '39264a4e-25a4-4411-b086-bf8c52608891', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f590e10c790>]}
+[0m16:19:30.613467 [debug] [MainThread]: On master: ROLLBACK
+[0m16:19:30.617465 [debug] [MainThread]: Using postgres connection "master"
+[0m16:19:30.621090 [debug] [MainThread]: On master: BEGIN
+[0m16:19:30.625740 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m16:19:30.630383 [debug] [MainThread]: On master: COMMIT
+[0m16:19:30.634743 [debug] [MainThread]: Using postgres connection "master"
+[0m16:19:30.638650 [debug] [MainThread]: On master: COMMIT
+[0m16:19:30.643094 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m16:19:30.648824 [debug] [MainThread]: On master: Close
+[0m16:19:30.653661 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m16:19:30.657562 [info ] [MainThread]: 
+[0m16:19:30.676507 [debug] [Thread-1 (]: Began running node seed.br_educacao.bolsas-de-cotas-concedidas
+[0m16:19:30.679646 [info ] [Thread-1 (]: 1 of 1 START seed file public_bronze.bolsas-de-cotas-concedidas ................ [RUN]
+[0m16:19:30.685047 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_censo_public_silver, now seed.br_educacao.bolsas-de-cotas-concedidas)
+[0m16:19:30.689571 [debug] [Thread-1 (]: Began compiling node seed.br_educacao.bolsas-de-cotas-concedidas
+[0m16:19:30.692206 [debug] [Thread-1 (]: Timing info for seed.br_educacao.bolsas-de-cotas-concedidas (compile): 16:19:30.691845 => 16:19:30.691853
+[0m16:19:30.695034 [debug] [Thread-1 (]: Began executing node seed.br_educacao.bolsas-de-cotas-concedidas
+[0m16:19:37.119065 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:19:37.122550 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: BEGIN
+[0m16:19:37.126136 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:19:37.133835 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m16:19:37.137737 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:19:37.141779 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "node_id": "seed.br_educacao.bolsas-de-cotas-concedidas"} */
+
+    create table "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id" integer,"ano" integer,"instituicaoexecutora_sigla" text,"instituicaoexecutora_nome" text,"programa" text,"idbolsa" integer,"bolsista" text,"valortotalprevisto" integer,"datadisponibilizacao" date)
+  
+[0m16:19:37.169118 [debug] [Thread-1 (]: SQL status: CREATE TABLE in 0.0 seconds
+[0m16:19:59.070790 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:19:59.073976 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:19:59.281240 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:20:20.752331 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:20:20.757200 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:20:20.958396 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:20:42.415835 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:20:42.418294 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:20:42.594157 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:21:03.943002 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:21:03.945978 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:21:04.125398 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:21:25.309501 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:21:25.314928 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:21:25.503557 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:21:46.885067 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:21:46.887588 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:21:47.071723 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:22:09.233352 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:22:09.237078 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:22:09.412453 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:22:31.554502 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:22:31.558853 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:22:31.742799 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:22:54.778365 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:22:54.784198 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:22:54.981096 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:23:17.143404 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:23:17.146841 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:23:17.339550 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:23:39.468518 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:23:39.472363 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:23:39.653553 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m16:23:59.442896 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:23:59.445789 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m16:23:59.599325 [debug] [Thread-1 (]: SQL status: INSERT 0 8701 in 0.0 seconds
+[0m16:23:59.611895 [debug] [Thread-1 (]: Writing runtime SQL for node "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:23:59.690558 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: COMMIT
+[0m16:23:59.695256 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m16:23:59.699823 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: COMMIT
+[0m16:23:59.717287 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m16:23:59.723939 [debug] [Thread-1 (]: Timing info for seed.br_educacao.bolsas-de-cotas-concedidas (execute): 16:19:30.697541 => 16:23:59.723573
+[0m16:23:59.728806 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: Close
+[0m16:23:59.735042 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '39264a4e-25a4-4411-b086-bf8c52608891', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f59085812d0>]}
+[0m16:23:59.740140 [info ] [Thread-1 (]: 1 of 1 OK loaded seed file public_bronze.bolsas-de-cotas-concedidas ............ [[32mINSERT 118701[0m in 269.05s]
+[0m16:23:59.744925 [debug] [Thread-1 (]: Finished running node seed.br_educacao.bolsas-de-cotas-concedidas
+[0m16:23:59.750752 [debug] [MainThread]: Using postgres connection "master"
+[0m16:23:59.753957 [debug] [MainThread]: On master: BEGIN
+[0m16:23:59.757525 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m16:23:59.765443 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m16:23:59.769042 [debug] [MainThread]: On master: COMMIT
+[0m16:23:59.772221 [debug] [MainThread]: Using postgres connection "master"
+[0m16:23:59.778914 [debug] [MainThread]: On master: COMMIT
+[0m16:23:59.783168 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m16:23:59.787935 [debug] [MainThread]: On master: Close
+[0m16:23:59.793179 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:23:59.797939 [debug] [MainThread]: Connection 'list_censo_public_gold' was properly closed.
+[0m16:23:59.802231 [debug] [MainThread]: Connection 'seed.br_educacao.bolsas-de-cotas-concedidas' was properly closed.
+[0m16:23:59.806593 [debug] [MainThread]: Connection 'list_censo_public_bronze' was properly closed.
+[0m16:23:59.810621 [info ] [MainThread]: 
+[0m16:23:59.814431 [info ] [MainThread]: Finished running 1 seed in 0 hours 4 minutes and 29.60 seconds (269.60s).
+[0m16:23:59.818493 [debug] [MainThread]: Command end result
+[0m16:23:59.874583 [info ] [MainThread]: 
+[0m16:23:59.877985 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m16:23:59.881341 [info ] [MainThread]: 
+[0m16:23:59.884120 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m16:23:59.887760 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": true, "command_wall_clock_time": 271.2393, "process_user_time": 269.97934, "process_kernel_time": 0.419921, "process_mem_max_rss": "384104", "process_in_blocks": "15488", "process_out_blocks": "96"}
+[0m16:23:59.891013 [debug] [MainThread]: Command `dbt seed` succeeded at 16:23:59.890791 after 271.24 seconds
+[0m16:23:59.893465 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f591292bb10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5908445790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f590e513910>]}
+[0m16:23:59.896070 [debug] [MainThread]: Flushing usage events
+[0m16:24:03.310087 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0668060310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06696fa950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0667eb7f10>]}
+
+
+============================== 16:24:03.317985 | 7a29c926-6b9f-42fd-b58c-27b5c147c669 ==============================
+[0m16:24:03.317985 [info ] [MainThread]: Running with dbt=1.7.14
+[0m16:24:03.329048 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'dbt/logs', 'fail_fast': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m16:24:03.625560 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06680aff10>]}
+[0m16:24:03.704662 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06678f8650>]}
+[0m16:24:03.708784 [info ] [MainThread]: Registered adapter: postgres=1.7.14
+[0m16:24:03.740680 [debug] [MainThread]: checksum: b411d081b927cdacab5285aa7376d1e0bf7d3f712815bc6d31ac551dc80fb5fe, vars: {}, profile: inep_postgres, target: , version: 1.7.14
+[0m16:24:04.503200 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:24:04.506739 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:24:04.515254 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0667eb8910>]}
+[0m16:24:04.587730 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f066757a410>]}
+[0m16:24:04.590306 [info ] [MainThread]: Found 6 models, 1 seed, 0 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[0m16:24:04.592492 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06678c3350>]}
+[0m16:24:04.596622 [info ] [MainThread]: 
+[0m16:24:04.599337 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m16:24:04.604100 [debug] [ThreadPool]: Acquiring new postgres connection 'list_censo'
+[0m16:24:04.605610 [debug] [ThreadPool]: Acquiring new postgres connection 'list_censo'
+[0m16:24:04.606648 [debug] [ThreadPool]: Acquiring new postgres connection 'list_censo'
+[0m16:24:04.619440 [debug] [ThreadPool]: Using postgres connection "list_censo"
+[0m16:24:04.624178 [debug] [ThreadPool]: Using postgres connection "list_censo"
+[0m16:24:04.630930 [debug] [ThreadPool]: Using postgres connection "list_censo"
+[0m16:24:04.635543 [debug] [ThreadPool]: On list_censo: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:24:04.639799 [debug] [ThreadPool]: On list_censo: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:24:04.643540 [debug] [ThreadPool]: On list_censo: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:24:04.647058 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:24:04.650590 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:24:04.654135 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:24:04.663221 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.0 seconds
+[0m16:24:04.666749 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.0 seconds
+[0m16:24:04.670344 [debug] [ThreadPool]: On list_censo: Close
+[0m16:24:04.671852 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.0 seconds
+[0m16:24:04.675133 [debug] [ThreadPool]: On list_censo: Close
+[0m16:24:04.682155 [debug] [ThreadPool]: On list_censo: Close
+[0m16:24:04.689183 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_censo, now create_censo_public_gold)
+[0m16:24:04.690398 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_censo, now create_censo_public_silver)
+[0m16:24:04.693835 [debug] [ThreadPool]: Creating schema "database: "censo"
+schema: "public_gold"
+"
+[0m16:24:04.697592 [debug] [ThreadPool]: Creating schema "database: "censo"
+schema: "public_silver"
+"
+[0m16:24:04.709427 [debug] [ThreadPool]: Using postgres connection "create_censo_public_gold"
+[0m16:24:04.714475 [debug] [ThreadPool]: Using postgres connection "create_censo_public_silver"
+[0m16:24:04.718710 [debug] [ThreadPool]: On create_censo_public_gold: BEGIN
+[0m16:24:04.722469 [debug] [ThreadPool]: On create_censo_public_silver: BEGIN
+[0m16:24:04.725703 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:24:04.728816 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:24:04.735940 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:04.738909 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:04.739477 [debug] [ThreadPool]: Using postgres connection "create_censo_public_gold"
+[0m16:24:04.742216 [debug] [ThreadPool]: Using postgres connection "create_censo_public_silver"
+[0m16:24:04.745178 [debug] [ThreadPool]: On create_censo_public_gold: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "create_censo_public_gold"} */
+create schema if not exists "public_gold"
+[0m16:24:04.748016 [debug] [ThreadPool]: On create_censo_public_silver: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "create_censo_public_silver"} */
+create schema if not exists "public_silver"
+[0m16:24:04.752563 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.0 seconds
+[0m16:24:04.755474 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.0 seconds
+[0m16:24:04.758113 [debug] [ThreadPool]: On create_censo_public_gold: COMMIT
+[0m16:24:04.761716 [debug] [ThreadPool]: On create_censo_public_silver: COMMIT
+[0m16:24:04.764659 [debug] [ThreadPool]: Using postgres connection "create_censo_public_gold"
+[0m16:24:04.767266 [debug] [ThreadPool]: Using postgres connection "create_censo_public_silver"
+[0m16:24:04.770642 [debug] [ThreadPool]: On create_censo_public_gold: COMMIT
+[0m16:24:04.773646 [debug] [ThreadPool]: On create_censo_public_silver: COMMIT
+[0m16:24:04.780440 [debug] [ThreadPool]: SQL status: COMMIT in 0.0 seconds
+[0m16:24:04.781942 [debug] [ThreadPool]: SQL status: COMMIT in 0.0 seconds
+[0m16:24:04.783876 [debug] [ThreadPool]: On create_censo_public_gold: Close
+[0m16:24:04.787009 [debug] [ThreadPool]: On create_censo_public_silver: Close
+[0m16:24:04.797875 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_censo_public_gold, now list_censo_public_gold)
+[0m16:24:04.798970 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_censo_public_silver, now list_censo_public_bronze)
+[0m16:24:04.800483 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_censo, now list_censo_public_silver)
+[0m16:24:04.808698 [debug] [ThreadPool]: Using postgres connection "list_censo_public_gold"
+[0m16:24:04.813850 [debug] [ThreadPool]: Using postgres connection "list_censo_public_bronze"
+[0m16:24:04.820194 [debug] [ThreadPool]: Using postgres connection "list_censo_public_silver"
+[0m16:24:04.823646 [debug] [ThreadPool]: On list_censo_public_gold: BEGIN
+[0m16:24:04.826676 [debug] [ThreadPool]: On list_censo_public_bronze: BEGIN
+[0m16:24:04.829820 [debug] [ThreadPool]: On list_censo_public_silver: BEGIN
+[0m16:24:04.832941 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:24:04.836472 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:24:04.839670 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:24:04.849188 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:04.852777 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:04.854958 [debug] [ThreadPool]: Using postgres connection "list_censo_public_gold"
+[0m16:24:04.858995 [debug] [ThreadPool]: Using postgres connection "list_censo_public_bronze"
+[0m16:24:04.859859 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:04.862575 [debug] [ThreadPool]: On list_censo_public_gold: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo_public_gold"} */
+select
+      'censo' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_gold'
+    union all
+    select
+      'censo' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_gold'
+    union all
+    select
+      'censo' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_gold'
+  
+[0m16:24:04.865080 [debug] [ThreadPool]: On list_censo_public_bronze: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo_public_bronze"} */
+select
+      'censo' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_bronze'
+    union all
+    select
+      'censo' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_bronze'
+    union all
+    select
+      'censo' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_bronze'
+  
+[0m16:24:04.868006 [debug] [ThreadPool]: Using postgres connection "list_censo_public_silver"
+[0m16:24:04.874433 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m16:24:04.876168 [debug] [ThreadPool]: On list_censo_public_silver: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo_public_silver"} */
+select
+      'censo' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_silver'
+    union all
+    select
+      'censo' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_silver'
+    union all
+    select
+      'censo' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_silver'
+  
+[0m16:24:04.876859 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.0 seconds
+[0m16:24:04.880365 [debug] [ThreadPool]: On list_censo_public_gold: ROLLBACK
+[0m16:24:04.886822 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m16:24:04.888768 [debug] [ThreadPool]: On list_censo_public_bronze: ROLLBACK
+[0m16:24:04.892508 [debug] [ThreadPool]: On list_censo_public_gold: Close
+[0m16:24:04.896268 [debug] [ThreadPool]: On list_censo_public_silver: ROLLBACK
+[0m16:24:04.900106 [debug] [ThreadPool]: On list_censo_public_bronze: Close
+[0m16:24:04.906437 [debug] [ThreadPool]: On list_censo_public_silver: Close
+[0m16:24:04.918875 [debug] [MainThread]: Using postgres connection "master"
+[0m16:24:04.922124 [debug] [MainThread]: On master: BEGIN
+[0m16:24:04.925305 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:24:04.933258 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:04.936469 [debug] [MainThread]: Using postgres connection "master"
+[0m16:24:04.940287 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m16:24:04.949053 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m16:24:04.953876 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f066711a2d0>]}
+[0m16:24:04.957359 [debug] [MainThread]: On master: ROLLBACK
+[0m16:24:04.960917 [debug] [MainThread]: Using postgres connection "master"
+[0m16:24:04.963848 [debug] [MainThread]: On master: BEGIN
+[0m16:24:04.967418 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:04.970961 [debug] [MainThread]: On master: COMMIT
+[0m16:24:04.974195 [debug] [MainThread]: Using postgres connection "master"
+[0m16:24:04.976083 [debug] [MainThread]: On master: COMMIT
+[0m16:24:04.979561 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m16:24:04.982287 [debug] [MainThread]: On master: Close
+[0m16:24:04.985417 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m16:24:04.988836 [info ] [MainThread]: 
+[0m16:24:04.998431 [debug] [Thread-1 (]: Began running node model.br_educacao.bolsas_concedidas
+[0m16:24:04.998972 [debug] [Thread-2 (]: Began running node model.br_educacao.bolsistas
+[0m16:24:04.999787 [debug] [Thread-3 (]: Began running node model.br_educacao.calendario
+[0m16:24:05.000431 [debug] [Thread-4 (]: Began running node model.br_educacao.fato_bolsas
+[0m16:24:05.002081 [info ] [Thread-1 (]: 1 of 6 START sql view model public_bronze.raw__bolsas_de_cotas_concedidas ...... [RUN]
+[0m16:24:05.004667 [info ] [Thread-2 (]: 2 of 6 START sql table model public_gold.bolsistas ............................. [RUN]
+[0m16:24:05.006814 [info ] [Thread-3 (]: 3 of 6 START sql table model public_gold.calendario ............................ [RUN]
+[0m16:24:05.008861 [info ] [Thread-4 (]: 4 of 6 START sql table model public_gold.fato_bolsas ........................... [RUN]
+[0m16:24:05.011470 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_censo_public_silver, now model.br_educacao.bolsas_concedidas)
+[0m16:24:05.014069 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_censo_public_bronze, now model.br_educacao.bolsistas)
+[0m16:24:05.017736 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_censo_public_gold, now model.br_educacao.calendario)
+[0m16:24:05.023507 [debug] [Thread-4 (]: Acquiring new postgres connection 'model.br_educacao.fato_bolsas'
+[0m16:24:05.025765 [debug] [Thread-1 (]: Began compiling node model.br_educacao.bolsas_concedidas
+[0m16:24:05.027494 [debug] [Thread-2 (]: Began compiling node model.br_educacao.bolsistas
+[0m16:24:05.029276 [debug] [Thread-3 (]: Began compiling node model.br_educacao.calendario
+[0m16:24:05.032094 [debug] [Thread-4 (]: Began compiling node model.br_educacao.fato_bolsas
+[0m16:24:05.044889 [debug] [Thread-1 (]: Writing injected SQL for node "model.br_educacao.bolsas_concedidas"
+[0m16:24:05.049482 [debug] [Thread-2 (]: Writing injected SQL for node "model.br_educacao.bolsistas"
+[0m16:24:05.056576 [debug] [Thread-3 (]: Writing injected SQL for node "model.br_educacao.calendario"
+[0m16:24:05.063841 [debug] [Thread-4 (]: Writing injected SQL for node "model.br_educacao.fato_bolsas"
+[0m16:24:05.131316 [debug] [Thread-4 (]: Timing info for model.br_educacao.fato_bolsas (compile): 16:24:05.059371 => 16:24:05.130918
+[0m16:24:05.131896 [debug] [Thread-1 (]: Timing info for model.br_educacao.bolsas_concedidas (compile): 16:24:05.034499 => 16:24:05.131597
+[0m16:24:05.133569 [debug] [Thread-4 (]: Began executing node model.br_educacao.fato_bolsas
+[0m16:24:05.134904 [debug] [Thread-2 (]: Timing info for model.br_educacao.bolsistas (compile): 16:24:05.046671 => 16:24:05.134226
+[0m16:24:05.136410 [debug] [Thread-1 (]: Began executing node model.br_educacao.bolsas_concedidas
+[0m16:24:05.157841 [debug] [Thread-3 (]: Timing info for model.br_educacao.calendario (compile): 16:24:05.052496 => 16:24:05.157301
+[0m16:24:05.171733 [debug] [Thread-2 (]: Began executing node model.br_educacao.bolsistas
+[0m16:24:05.207636 [debug] [Thread-4 (]: Writing runtime sql for node "model.br_educacao.fato_bolsas"
+[0m16:24:05.225656 [debug] [Thread-1 (]: Writing runtime sql for node "model.br_educacao.bolsas_concedidas"
+[0m16:24:05.226450 [debug] [Thread-3 (]: Began executing node model.br_educacao.calendario
+[0m16:24:05.235581 [debug] [Thread-2 (]: Writing runtime sql for node "model.br_educacao.bolsistas"
+[0m16:24:05.253374 [debug] [Thread-3 (]: Writing runtime sql for node "model.br_educacao.calendario"
+[0m16:24:05.290342 [debug] [Thread-4 (]: Using postgres connection "model.br_educacao.fato_bolsas"
+[0m16:24:05.291199 [debug] [Thread-1 (]: Using postgres connection "model.br_educacao.bolsas_concedidas"
+[0m16:24:05.293545 [debug] [Thread-4 (]: On model.br_educacao.fato_bolsas: BEGIN
+[0m16:24:05.294304 [debug] [Thread-2 (]: Using postgres connection "model.br_educacao.bolsistas"
+[0m16:24:05.296533 [debug] [Thread-1 (]: On model.br_educacao.bolsas_concedidas: BEGIN
+[0m16:24:05.299681 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m16:24:05.301537 [debug] [Thread-3 (]: Using postgres connection "model.br_educacao.calendario"
+[0m16:24:05.302821 [debug] [Thread-2 (]: On model.br_educacao.bolsistas: BEGIN
+[0m16:24:05.306292 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:24:05.313360 [debug] [Thread-3 (]: On model.br_educacao.calendario: BEGIN
+[0m16:24:05.314668 [debug] [Thread-4 (]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:05.316674 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m16:24:05.323354 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m16:24:05.325321 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:05.327837 [debug] [Thread-4 (]: Using postgres connection "model.br_educacao.fato_bolsas"
+[0m16:24:05.336666 [debug] [Thread-2 (]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:05.339213 [debug] [Thread-1 (]: Using postgres connection "model.br_educacao.bolsas_concedidas"
+[0m16:24:05.340891 [debug] [Thread-3 (]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:05.343323 [debug] [Thread-4 (]: On model.br_educacao.fato_bolsas: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "node_id": "model.br_educacao.fato_bolsas"} */
+
+  
+    
+
+  create  table "censo"."public_gold"."fato_bolsas__dbt_tmp"
+  
+  
+    as
+  
+  (
+    SELECT
+    CAST(_id AS TEXT) AS id,
+    CAST(ano AS INTEGER) AS ano,
+    CAST(idbolsa AS TEXT) AS id_bolsa,
+    CAST(valortotalprevisto AS FLOAT) AS valortotalprevisto,
+    CAST(datadisponibilizacao AS DATE) AS data_disponibilizacao
+FROM "censo"."public_bronze"."bolsas-de-cotas-concedidas"
+WHERE 1 = 1
+  );
+  
+[0m16:24:05.347074 [debug] [Thread-2 (]: Using postgres connection "model.br_educacao.bolsistas"
+[0m16:24:05.352297 [debug] [Thread-1 (]: On model.br_educacao.bolsas_concedidas: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "node_id": "model.br_educacao.bolsas_concedidas"} */
+
+  create view "censo"."public_bronze"."raw__bolsas_de_cotas_concedidas__dbt_tmp"
+    
+    
+  as (
+    -- raw/tabela bolsas-de-cotas-concedidas.sql que esta na camada raw
+
+SELECT *
+
+
+select *
+from "censo"."public_bronze"."bolsas-de-cotas-concedidas"  -- o seed
+  );
+[0m16:24:05.355836 [debug] [Thread-3 (]: Using postgres connection "model.br_educacao.calendario"
+[0m16:24:05.363906 [debug] [Thread-2 (]: On model.br_educacao.bolsistas: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "node_id": "model.br_educacao.bolsistas"} */
+
+  
+    
+
+  create  table "censo"."public_gold"."bolsistas__dbt_tmp"
+  
+  
+    as
+  
+  (
+    WITH BOLSISTAS AS (
+    SELECT 
+        CAST(idbolsa AS TEXT) AS id_bolsa,
+        CAST(bolsista AS TEXT) AS bolsista,
+        ROW_NUMBER() OVER (PARTITION BY idbolsa ORDER BY bolsista) AS row_num
+    FROM "censo"."public_bronze"."bolsas-de-cotas-concedidas"
+    WHERE 1 = 1
+    AND bolsista IS NOT NULL
+    AND bolsista != ''
+    AND idbolsa IS NOT NULL
+)
+SELECT
+    id_bolsa,
+    bolsista
+FROM BOLSISTAS
+WHERE row_num = 1;
+  );
+  
+[0m16:24:05.369514 [debug] [Thread-1 (]: Postgres adapter: Postgres error: syntax error at or near "select"
+LINE 12: select *
+         ^
+
+[0m16:24:05.372751 [debug] [Thread-3 (]: On model.br_educacao.calendario: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "node_id": "model.br_educacao.calendario"} */
+
+  
+    
+
+  create  table "censo"."public_gold"."calendario__dbt_tmp"
+  
+  
+    as
+  
+  (
+    WITH LIMITES AS (
+  SELECT
+    MIN(CAST(datadisponibilizacao AS DATE)) AS data_min,
+    MAX(CAST(datadisponibilizacao AS DATE)) AS data_max
+  FROM "censo"."public_bronze"."bolsas-de-cotas-concedidas"
+),
+
+DATAS AS (
+  SELECT generate_series(data_min, data_max, interval '1 day')::DATE AS data
+  FROM LIMITES
+),
+
+NOME_MESES AS (
+  SELECT * FROM (VALUES
+    (1, 'Janeiro'), (2, 'Fevereiro'), (3, 'Março'), (4, 'Abril'),
+    (5, 'Maio'), (6, 'Junho'), (7, 'Julho'), (8, 'Agosto'),
+    (9, 'Setembro'), (10, 'Outubro'), (11, 'Novembro'), (12, 'Dezembro')
+  ) AS t(numero_mes, nome_mes)
+),
+
+CALENDARIO AS (
+  SELECT
+    d.data,
+    EXTRACT(DAY FROM d.data) AS dia,
+    LPAD(EXTRACT(MONTH FROM d.data)::TEXT, 2, '0') AS numero_mes,
+    m.nome_mes,
+    EXTRACT(YEAR FROM d.data) AS ano,
+
+    CASE EXTRACT(DOW FROM d.data)
+      WHEN 0 THEN 'Domingo'
+      WHEN 1 THEN 'Segunda-feira'
+      WHEN 2 THEN 'Terça-feira'
+      WHEN 3 THEN 'Quarta-feira'
+      WHEN 4 THEN 'Quinta-feira'
+      WHEN 5 THEN 'Sexta-feira'
+      WHEN 6 THEN 'Sábado'
+    END AS nome_dia_semana,
+
+    EXTRACT(WEEK FROM d.data) AS semana_do_ano,
+
+    CASE 
+      WHEN EXTRACT(MONTH FROM d.data) BETWEEN 1 AND 2 THEN 'Bim 1º'
+      WHEN EXTRACT(MONTH FROM d.data) BETWEEN 3 AND 4 THEN 'Bim 2º'
+      WHEN EXTRACT(MONTH FROM d.data) BETWEEN 5 AND 6 THEN 'Bim 3º'
+      WHEN EXTRACT(MONTH FROM d.data) BETWEEN 7 AND 8 THEN 'Bim 4º'
+      WHEN EXTRACT(MONTH FROM d.data) BETWEEN 9 AND 10 THEN 'Bim 5º'
+      WHEN EXTRACT(MONTH FROM d.data) BETWEEN 11 AND 12 THEN 'Bim 6º'
+    END AS bimestre,
+
+    CASE 
+      WHEN EXTRACT(MONTH FROM d.data) BETWEEN 1 AND 3 THEN 'Tri 1º'
+      WHEN EXTRACT(MONTH FROM d.data) BETWEEN 4 AND 6 THEN 'Tri 2º'
+      WHEN EXTRACT(MONTH FROM d.data) BETWEEN 7 AND 9 THEN 'Tri 3º'
+      ELSE 'Tri 4º'
+    END AS trimestre,
+
+    CASE 
+      WHEN EXTRACT(MONTH FROM d.data) BETWEEN 1 AND 6 THEN 'Sem 1º'
+      ELSE 'Sem 2º'
+    END AS semestre,
+
+    TO_CHAR(d.data, 'YYYY-MM-DD') AS data_formatada,
+    TO_CHAR(d.data, 'YYYY-MM') AS ano_mes,
+    CONCAT(EXTRACT(YEAR FROM d.data), '-', LPAD(EXTRACT(MONTH FROM d.data)::TEXT, 2, '0')) AS chave_ano_mes
+
+  FROM DATAS AS d
+  LEFT JOIN  NOME_MESES AS m
+    ON EXTRACT(MONTH FROM d.data) = m.numero_mes
+)
+
+SELECT * FROM CALENDARIO
+WHERE 1 = 1
+ORDER BY data ASC;
+  );
+  
+[0m16:24:05.379281 [debug] [Thread-2 (]: Postgres adapter: Postgres error: syntax error at or near ";"
+LINE 27: WHERE row_num = 1;
+                          ^
+
+[0m16:24:05.382545 [debug] [Thread-1 (]: On model.br_educacao.bolsas_concedidas: ROLLBACK
+[0m16:24:05.388427 [debug] [Thread-3 (]: Postgres adapter: Postgres error: syntax error at or near ";"
+LINE 84: ORDER BY data ASC;
+                          ^
+
+[0m16:24:05.390598 [debug] [Thread-2 (]: On model.br_educacao.bolsistas: ROLLBACK
+[0m16:24:05.396148 [debug] [Thread-1 (]: Timing info for model.br_educacao.bolsas_concedidas (execute): 16:24:05.201652 => 16:24:05.395245
+[0m16:24:05.398980 [debug] [Thread-3 (]: On model.br_educacao.calendario: ROLLBACK
+[0m16:24:05.403304 [debug] [Thread-2 (]: Timing info for model.br_educacao.bolsistas (execute): 16:24:05.230007 => 16:24:05.402775
+[0m16:24:05.405706 [debug] [Thread-1 (]: On model.br_educacao.bolsas_concedidas: Close
+[0m16:24:05.410172 [debug] [Thread-3 (]: Timing info for model.br_educacao.calendario (execute): 16:24:05.245111 => 16:24:05.409829
+[0m16:24:05.412586 [debug] [Thread-2 (]: On model.br_educacao.bolsistas: Close
+[0m16:24:05.420628 [debug] [Thread-3 (]: On model.br_educacao.calendario: Close
+[0m16:24:05.440882 [debug] [Thread-3 (]: Database Error in model calendario (models/gold/calendario.sql)
+  syntax error at or near ";"
+  LINE 84: ORDER BY data ASC;
+                            ^
+  compiled Code at target/run/br_educacao/models/gold/calendario.sql
+[0m16:24:05.443194 [debug] [Thread-1 (]: Database Error in model bolsas_concedidas (models/raw/bolsas_concedidas.sql)
+  syntax error at or near "select"
+  LINE 12: select *
+           ^
+  compiled Code at target/run/br_educacao/models/raw/bolsas_concedidas.sql
+[0m16:24:05.445418 [debug] [Thread-2 (]: Database Error in model bolsistas (models/gold/bolsistas.sql)
+  syntax error at or near ";"
+  LINE 27: WHERE row_num = 1;
+                            ^
+  compiled Code at target/run/br_educacao/models/gold/bolsistas.sql
+[0m16:24:05.446899 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0667131ad0>]}
+[0m16:24:05.449883 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0668056f10>]}
+[0m16:24:05.453041 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f066755d810>]}
+[0m16:24:05.456177 [error] [Thread-3 (]: 3 of 6 ERROR creating sql table model public_gold.calendario ................... [[31mERROR[0m in 0.43s]
+[0m16:24:05.460328 [error] [Thread-1 (]: 1 of 6 ERROR creating sql view model public_bronze.raw__bolsas_de_cotas_concedidas  [[31mERROR[0m in 0.44s]
+[0m16:24:05.463625 [error] [Thread-2 (]: 2 of 6 ERROR creating sql table model public_gold.bolsistas .................... [[31mERROR[0m in 0.44s]
+[0m16:24:05.466321 [debug] [Thread-3 (]: Finished running node model.br_educacao.calendario
+[0m16:24:05.467817 [debug] [Thread-4 (]: SQL status: SELECT 118701 in 0.0 seconds
+[0m16:24:05.469611 [debug] [Thread-1 (]: Finished running node model.br_educacao.bolsas_concedidas
+[0m16:24:05.471971 [debug] [Thread-2 (]: Finished running node model.br_educacao.bolsistas
+[0m16:24:05.474955 [debug] [Thread-3 (]: Began running node model.br_educacao.instituicoes
+[0m16:24:05.494639 [debug] [Thread-4 (]: Using postgres connection "model.br_educacao.fato_bolsas"
+[0m16:24:05.496487 [debug] [Thread-1 (]: Began running node model.br_educacao.silver-bolsas-de-cotas-concedidas
+[0m16:24:05.503655 [info ] [Thread-3 (]: 5 of 6 START sql table model public_gold.instituicoes .......................... [RUN]
+[0m16:24:05.507691 [debug] [Thread-4 (]: On model.br_educacao.fato_bolsas: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "node_id": "model.br_educacao.fato_bolsas"} */
+alter table "censo"."public_gold"."fato_bolsas__dbt_tmp" rename to "fato_bolsas"
+[0m16:24:05.511907 [info ] [Thread-1 (]: 6 of 6 START sql table model public_silver.silver-bolsas-de-cotas-concedidas ... [RUN]
+[0m16:24:05.515055 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.br_educacao.calendario, now model.br_educacao.instituicoes)
+[0m16:24:05.520265 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m16:24:05.523957 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.br_educacao.bolsas_concedidas, now model.br_educacao.silver-bolsas-de-cotas-concedidas)
+[0m16:24:05.526809 [debug] [Thread-3 (]: Began compiling node model.br_educacao.instituicoes
+[0m16:24:05.553010 [debug] [Thread-1 (]: Began compiling node model.br_educacao.silver-bolsas-de-cotas-concedidas
+[0m16:24:05.555333 [debug] [Thread-4 (]: On model.br_educacao.fato_bolsas: COMMIT
+[0m16:24:05.562034 [debug] [Thread-3 (]: Writing injected SQL for node "model.br_educacao.instituicoes"
+[0m16:24:05.568516 [debug] [Thread-1 (]: Writing injected SQL for node "model.br_educacao.silver-bolsas-de-cotas-concedidas"
+[0m16:24:05.571080 [debug] [Thread-4 (]: Using postgres connection "model.br_educacao.fato_bolsas"
+[0m16:24:05.577478 [debug] [Thread-4 (]: On model.br_educacao.fato_bolsas: COMMIT
+[0m16:24:05.583155 [debug] [Thread-4 (]: SQL status: COMMIT in 0.0 seconds
+[0m16:24:05.602481 [debug] [Thread-4 (]: Applying DROP to: "censo"."public_gold"."fato_bolsas__dbt_backup"
+[0m16:24:05.614711 [debug] [Thread-3 (]: Timing info for model.br_educacao.instituicoes (compile): 16:24:05.557543 => 16:24:05.613818
+[0m16:24:05.615346 [debug] [Thread-1 (]: Timing info for model.br_educacao.silver-bolsas-de-cotas-concedidas (compile): 16:24:05.565303 => 16:24:05.615030
+[0m16:24:05.625612 [debug] [Thread-4 (]: Using postgres connection "model.br_educacao.fato_bolsas"
+[0m16:24:05.627491 [debug] [Thread-3 (]: Began executing node model.br_educacao.instituicoes
+[0m16:24:05.631356 [debug] [Thread-1 (]: Began executing node model.br_educacao.silver-bolsas-de-cotas-concedidas
+[0m16:24:05.635210 [debug] [Thread-4 (]: On model.br_educacao.fato_bolsas: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "node_id": "model.br_educacao.fato_bolsas"} */
+drop table if exists "censo"."public_gold"."fato_bolsas__dbt_backup" cascade
+[0m16:24:05.645760 [debug] [Thread-3 (]: Writing runtime sql for node "model.br_educacao.instituicoes"
+[0m16:24:05.652853 [debug] [Thread-1 (]: Writing runtime sql for node "model.br_educacao.silver-bolsas-de-cotas-concedidas"
+[0m16:24:05.655386 [debug] [Thread-4 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m16:24:05.664892 [debug] [Thread-4 (]: Timing info for model.br_educacao.fato_bolsas (execute): 16:24:05.138607 => 16:24:05.664557
+[0m16:24:05.668065 [debug] [Thread-4 (]: On model.br_educacao.fato_bolsas: Close
+[0m16:24:05.672310 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0667133490>]}
+[0m16:24:05.676032 [info ] [Thread-4 (]: 4 of 6 OK created sql table model public_gold.fato_bolsas ...................... [[32mSELECT 118701[0m in 0.65s]
+[0m16:24:05.679493 [debug] [Thread-4 (]: Finished running node model.br_educacao.fato_bolsas
+[0m16:24:05.682585 [debug] [Thread-1 (]: Using postgres connection "model.br_educacao.silver-bolsas-de-cotas-concedidas"
+[0m16:24:05.685483 [debug] [Thread-3 (]: Using postgres connection "model.br_educacao.instituicoes"
+[0m16:24:05.689552 [debug] [Thread-1 (]: On model.br_educacao.silver-bolsas-de-cotas-concedidas: BEGIN
+[0m16:24:05.694214 [debug] [Thread-3 (]: On model.br_educacao.instituicoes: BEGIN
+[0m16:24:05.698923 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:24:05.704484 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m16:24:05.716137 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:05.721255 [debug] [Thread-3 (]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:05.722585 [debug] [Thread-1 (]: Using postgres connection "model.br_educacao.silver-bolsas-de-cotas-concedidas"
+[0m16:24:05.728046 [debug] [Thread-3 (]: Using postgres connection "model.br_educacao.instituicoes"
+[0m16:24:05.734590 [debug] [Thread-1 (]: On model.br_educacao.silver-bolsas-de-cotas-concedidas: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "node_id": "model.br_educacao.silver-bolsas-de-cotas-concedidas"} */
+
+  
+    
+
+  create  table "censo"."public_silver"."silver-bolsas-de-cotas-concedidas__dbt_tmp"
+  
+  
+    as
+  
+  (
+    SELECT
+    CAST(_id AS TEXT) AS id,
+    CAST(ano AS INTEGER) AS ano,
+    CAST(instituicaoexecutor_sigla AS TEXT) AS instituicaoexecutor_sigla,
+    CAST(instituicaoexecutor_nome AS TEXT) AS instituicaoexecutor_sigla,
+    CAST(programa AS TEXT) AS programa,
+    CAST(idbolsa AS TEXT) AS id_bolsa,
+    CAST(bolsista AS TEXT) AS bolsista,
+    CAST(valortotalprevisto AS FLOAT) AS valortotalprevisto,
+    CAST(datadisponibilizacao AS DATE) AS data_disponibilizacao
+FROM "censo"."public_bronze"."bolsas-de-cotas-concedidas"
+WHERE 1 = 1
+  );
+  
+[0m16:24:05.741276 [debug] [Thread-3 (]: On model.br_educacao.instituicoes: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "node_id": "model.br_educacao.instituicoes"} */
+
+  
+    
+
+  create  table "censo"."public_gold"."instituicoes__dbt_tmp"
+  
+  
+    as
+  
+  (
+    WITH INSTITUICAO AS (
+    SELECT
+        CAST(_id AS TEXT) AS id,
+        INITCAP(CAST(instituicaoexecutor_sigla AS TEXT)) AS sigla_instituicao,
+        INITCAP(CAST(instituicaoexecutor_nome AS TEXT)) AS nome_instituicao,
+        INITCAP(CAST(programa AS TEXT)) AS programa,
+        ROW_NUMBER() OVER (
+            PARTITION BY _id
+            ORDER BY COALESCE(instituicaoexecutor_sigla, instituicaoexecutor_nome, programa) DESC
+        ) AS row_num
+    FROM "censo"."public_bronze"."bolsas-de-cotas-concedidas"
+    WHERE 1 = 1
+)
+SELECT *
+FROM INSTITUICAO
+WHERE row_num = 1;
+  );
+  
+[0m16:24:05.748308 [debug] [Thread-1 (]: Postgres adapter: Postgres error: column "instituicaoexecutor_sigla" does not exist
+LINE 15:     CAST(instituicaoexecutor_sigla AS TEXT) AS instituicaoex...
+                  ^
+
+[0m16:24:05.753575 [debug] [Thread-3 (]: Postgres adapter: Postgres error: syntax error at or near ";"
+LINE 27: WHERE row_num = 1;
+                          ^
+
+[0m16:24:05.757179 [debug] [Thread-1 (]: On model.br_educacao.silver-bolsas-de-cotas-concedidas: ROLLBACK
+[0m16:24:05.761208 [debug] [Thread-3 (]: On model.br_educacao.instituicoes: ROLLBACK
+[0m16:24:05.765837 [debug] [Thread-1 (]: Timing info for model.br_educacao.silver-bolsas-de-cotas-concedidas (execute): 16:24:05.647492 => 16:24:05.765382
+[0m16:24:05.769296 [debug] [Thread-3 (]: Timing info for model.br_educacao.instituicoes (execute): 16:24:05.638644 => 16:24:05.768921
+[0m16:24:05.771757 [debug] [Thread-1 (]: On model.br_educacao.silver-bolsas-de-cotas-concedidas: Close
+[0m16:24:05.775068 [debug] [Thread-3 (]: On model.br_educacao.instituicoes: Close
+[0m16:24:05.782033 [debug] [Thread-1 (]: Database Error in model silver-bolsas-de-cotas-concedidas (models/silver/silver-bolsas-de-cotas-concedidas.sql)
+  column "instituicaoexecutor_sigla" does not exist
+  LINE 15:     CAST(instituicaoexecutor_sigla AS TEXT) AS instituicaoex...
+                    ^
+  compiled Code at target/run/br_educacao/models/silver/silver-bolsas-de-cotas-concedidas.sql
+[0m16:24:05.786900 [debug] [Thread-3 (]: Database Error in model instituicoes (models/gold/instituicoes.sql)
+  syntax error at or near ";"
+  LINE 27: WHERE row_num = 1;
+                            ^
+  compiled Code at target/run/br_educacao/models/gold/instituicoes.sql
+[0m16:24:05.789507 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06675eee90>]}
+[0m16:24:05.792864 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a29c926-6b9f-42fd-b58c-27b5c147c669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0666d165d0>]}
+[0m16:24:05.796606 [error] [Thread-1 (]: 6 of 6 ERROR creating sql table model public_silver.silver-bolsas-de-cotas-concedidas  [[31mERROR[0m in 0.27s]
+[0m16:24:05.799721 [error] [Thread-3 (]: 5 of 6 ERROR creating sql table model public_gold.instituicoes ................. [[31mERROR[0m in 0.28s]
+[0m16:24:05.805925 [debug] [Thread-1 (]: Finished running node model.br_educacao.silver-bolsas-de-cotas-concedidas
+[0m16:24:05.810450 [debug] [Thread-3 (]: Finished running node model.br_educacao.instituicoes
+[0m16:24:05.824155 [debug] [MainThread]: Using postgres connection "master"
+[0m16:24:05.829301 [debug] [MainThread]: On master: BEGIN
+[0m16:24:05.834756 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m16:24:05.849813 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m16:24:05.856618 [debug] [MainThread]: On master: COMMIT
+[0m16:24:05.862084 [debug] [MainThread]: Using postgres connection "master"
+[0m16:24:05.865886 [debug] [MainThread]: On master: COMMIT
+[0m16:24:05.869773 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m16:24:05.873017 [debug] [MainThread]: On master: Close
+[0m16:24:05.877280 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:24:05.879935 [debug] [MainThread]: Connection 'model.br_educacao.instituicoes' was properly closed.
+[0m16:24:05.883444 [debug] [MainThread]: Connection 'model.br_educacao.bolsistas' was properly closed.
+[0m16:24:05.886927 [debug] [MainThread]: Connection 'model.br_educacao.silver-bolsas-de-cotas-concedidas' was properly closed.
+[0m16:24:05.889576 [debug] [MainThread]: Connection 'model.br_educacao.fato_bolsas' was properly closed.
+[0m16:24:05.892211 [info ] [MainThread]: 
+[0m16:24:05.894752 [info ] [MainThread]: Finished running 5 table models, 1 view model in 0 hours 0 minutes and 1.29 seconds (1.29s).
+[0m16:24:05.899547 [debug] [MainThread]: Command end result
+[0m16:24:05.964612 [info ] [MainThread]: 
+[0m16:24:05.969517 [info ] [MainThread]: [31mCompleted with 5 errors and 0 warnings:[0m
+[0m16:24:05.974421 [info ] [MainThread]: 
+[0m16:24:05.979732 [error] [MainThread]:   Database Error in model calendario (models/gold/calendario.sql)
+  syntax error at or near ";"
+  LINE 84: ORDER BY data ASC;
+                            ^
+  compiled Code at target/run/br_educacao/models/gold/calendario.sql
+[0m16:24:05.985581 [info ] [MainThread]: 
+[0m16:24:05.991403 [error] [MainThread]:   Database Error in model bolsas_concedidas (models/raw/bolsas_concedidas.sql)
+  syntax error at or near "select"
+  LINE 12: select *
+           ^
+  compiled Code at target/run/br_educacao/models/raw/bolsas_concedidas.sql
+[0m16:24:05.998302 [info ] [MainThread]: 
+[0m16:24:06.004183 [error] [MainThread]:   Database Error in model bolsistas (models/gold/bolsistas.sql)
+  syntax error at or near ";"
+  LINE 27: WHERE row_num = 1;
+                            ^
+  compiled Code at target/run/br_educacao/models/gold/bolsistas.sql
+[0m16:24:06.009306 [info ] [MainThread]: 
+[0m16:24:06.014421 [error] [MainThread]:   Database Error in model silver-bolsas-de-cotas-concedidas (models/silver/silver-bolsas-de-cotas-concedidas.sql)
+  column "instituicaoexecutor_sigla" does not exist
+  LINE 15:     CAST(instituicaoexecutor_sigla AS TEXT) AS instituicaoex...
+                    ^
+  compiled Code at target/run/br_educacao/models/silver/silver-bolsas-de-cotas-concedidas.sql
+[0m16:24:06.019558 [info ] [MainThread]: 
+[0m16:24:06.025101 [error] [MainThread]:   Database Error in model instituicoes (models/gold/instituicoes.sql)
+  syntax error at or near ";"
+  LINE 27: WHERE row_num = 1;
+                            ^
+  compiled Code at target/run/br_educacao/models/gold/instituicoes.sql
+[0m16:24:06.031156 [info ] [MainThread]: 
+[0m16:24:06.035674 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=5 SKIP=0 TOTAL=6
+[0m16:24:06.043105 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 2.8765197, "process_user_time": 2.986978, "process_kernel_time": 0.210491, "process_mem_max_rss": "119992", "process_in_blocks": "10168", "command_success": false, "process_out_blocks": "0"}
+[0m16:24:06.047301 [debug] [MainThread]: Command `dbt run` failed at 16:24:06.046546 after 2.88 seconds
+[0m16:24:06.050545 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f066834e390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f066c6f28d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f066c6f2a50>]}
+[0m16:24:06.055530 [debug] [MainThread]: Flushing usage events
+[0m17:03:31.652160 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc4fb20c9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc4fb26a0d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc4fb20d550>]}
+
+
+============================== 17:03:31.660959 | 5d5b34a9-996b-4f79-87e4-fe9950e232c8 ==============================
+[0m17:03:31.660959 [info ] [MainThread]: Running with dbt=1.7.14
+[0m17:03:31.666196 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'dbt/logs', 'profiles_dir': '/opt/app/dbt/profiles', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt deps --project-dir dbt', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m17:03:31.791733 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '5d5b34a9-996b-4f79-87e4-fe9950e232c8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc4fb2c9d50>]}
+[0m17:03:31.800209 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m17:03:31.825800 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m17:03:31.832101 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.2753267, "process_user_time": 2.363086, "process_kernel_time": 0.283179, "process_mem_max_rss": "103468", "process_in_blocks": "51600", "process_out_blocks": "0"}
+[0m17:03:31.835238 [debug] [MainThread]: Command `dbt deps` succeeded at 17:03:31.834951 after 0.28 seconds
+[0m17:03:31.838217 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc4fb26fe90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc4fb26fd90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc4ff9a2b10>]}
+[0m17:03:31.841349 [debug] [MainThread]: Flushing usage events
+[0m17:03:35.356043 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdd4677cf90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdd467dbb90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdd46be7910>]}
+
+
+============================== 17:03:35.364500 | b0d0067a-c8a4-4273-a2cf-63c981370b11 ==============================
+[0m17:03:35.364500 [info ] [MainThread]: Running with dbt=1.7.14
+[0m17:03:35.368679 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'version_check': 'True', 'debug': 'False', 'log_path': 'dbt/logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m17:03:35.671018 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b0d0067a-c8a4-4273-a2cf-63c981370b11', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdd45fe3f90>]}
+[0m17:03:35.743216 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'b0d0067a-c8a4-4273-a2cf-63c981370b11', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdd467bb510>]}
+[0m17:03:35.748514 [info ] [MainThread]: Registered adapter: postgres=1.7.14
+[0m17:03:35.766784 [debug] [MainThread]: checksum: b411d081b927cdacab5285aa7376d1e0bf7d3f712815bc6d31ac551dc80fb5fe, vars: {}, profile: inep_postgres, target: , version: 1.7.14
+[0m17:03:36.318247 [debug] [MainThread]: Partial parsing enabled: 2 files deleted, 2 files added, 4 files changed.
+[0m17:03:36.321800 [debug] [MainThread]: Partial parsing: added file: br_educacao://models/silver/silver_bolsas_concedidas.sql
+[0m17:03:36.325255 [debug] [MainThread]: Partial parsing: added file: br_educacao://models/raw/raw_bolsas_concedidas.sql
+[0m17:03:36.328630 [debug] [MainThread]: Partial parsing: deleted file: br_educacao://models/raw/bolsas_concedidas.sql
+[0m17:03:36.332152 [debug] [MainThread]: Partial parsing: deleted file: br_educacao://models/silver/silver-bolsas-de-cotas-concedidas.sql
+[0m17:03:36.335722 [debug] [MainThread]: Partial parsing: updated file: br_educacao://models/gold/calendario.sql
+[0m17:03:36.339392 [debug] [MainThread]: Partial parsing: updated file: br_educacao://models/gold/bolsistas.sql
+[0m17:03:36.344208 [debug] [MainThread]: Partial parsing: updated file: br_educacao://models/gold/fato_bolsas.sql
+[0m17:03:36.349131 [debug] [MainThread]: Partial parsing: updated file: br_educacao://models/gold/instituicoes.sql
+[0m17:03:36.549380 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.br_educacao.fato_bolsas' (models/gold/fato_bolsas.sql) depends on a node named 'silver__bolsas_concedidas' which was not found
+[0m17:03:36.553186 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_wall_clock_time": 1.3756555, "process_user_time": 2.515344, "process_kernel_time": 0.091652, "process_mem_max_rss": "115016", "process_in_blocks": "11504", "command_success": false, "process_out_blocks": "0"}
+[0m17:03:36.556687 [debug] [MainThread]: Command `dbt seed` failed at 17:03:36.556367 after 1.38 seconds
+[0m17:03:36.560209 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdd467da5d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdd453e1790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdd46789350>]}
+[0m17:03:36.563683 [debug] [MainThread]: Flushing usage events
+[0m17:07:00.446978 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f50884a90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f518e6950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f50884990>]}
+
+
+============================== 17:07:00.455246 | 4d194851-0ad4-4537-9717-bf9d2bfc18f3 ==============================
+[0m17:07:00.455246 [info ] [MainThread]: Running with dbt=1.7.14
+[0m17:07:00.458144 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'debug': 'False', 'version_check': 'True', 'log_path': 'dbt/logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt deps --project-dir dbt', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m17:07:00.583353 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4d194851-0ad4-4537-9717-bf9d2bfc18f3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f50739dd0>]}
+[0m17:07:00.588674 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m17:07:00.618776 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m17:07:00.626519 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.30561543, "process_user_time": 2.261972, "process_kernel_time": 0.247106, "process_mem_max_rss": "103524", "process_in_blocks": "51600", "process_out_blocks": "0"}
+[0m17:07:00.632535 [debug] [MainThread]: Command `dbt deps` succeeded at 17:07:00.631148 after 0.31 seconds
+[0m17:07:00.636635 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f506df9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f54e4ec50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f54f168d0>]}
+[0m17:07:00.639063 [debug] [MainThread]: Flushing usage events
+[0m17:07:03.916321 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9458b4b5d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9458ba7510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f94597622d0>]}
+
+
+============================== 17:07:03.920228 | a510d59c-59c3-44cb-80f4-0b4c01c3fca9 ==============================
+[0m17:07:03.920228 [info ] [MainThread]: Running with dbt=1.7.14
+[0m17:07:03.923031 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/app/dbt/profiles', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'dbt/logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m17:07:04.255147 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'a510d59c-59c3-44cb-80f4-0b4c01c3fca9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9457fc9710>]}
+[0m17:07:04.320048 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'a510d59c-59c3-44cb-80f4-0b4c01c3fca9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9457fa5550>]}
+[0m17:07:04.326138 [info ] [MainThread]: Registered adapter: postgres=1.7.14
+[0m17:07:04.358111 [debug] [MainThread]: checksum: b411d081b927cdacab5285aa7376d1e0bf7d3f712815bc6d31ac551dc80fb5fe, vars: {}, profile: inep_postgres, target: , version: 1.7.14
+[0m17:07:04.972560 [debug] [MainThread]: Partial parsing enabled: 2 files deleted, 2 files added, 4 files changed.
+[0m17:07:04.976336 [debug] [MainThread]: Partial parsing: added file: br_educacao://models/raw/raw_bolsas_concedidas.sql
+[0m17:07:04.979886 [debug] [MainThread]: Partial parsing: added file: br_educacao://models/silver/silver_bolsas_concedidas.sql
+[0m17:07:04.983524 [debug] [MainThread]: Partial parsing: deleted file: br_educacao://models/silver/silver-bolsas-de-cotas-concedidas.sql
+[0m17:07:04.987219 [debug] [MainThread]: Partial parsing: deleted file: br_educacao://models/raw/bolsas_concedidas.sql
+[0m17:07:04.990549 [debug] [MainThread]: Partial parsing: updated file: br_educacao://models/gold/fato_bolsas.sql
+[0m17:07:04.994289 [debug] [MainThread]: Partial parsing: updated file: br_educacao://models/gold/bolsistas.sql
+[0m17:07:04.998355 [debug] [MainThread]: Partial parsing: updated file: br_educacao://models/gold/instituicoes.sql
+[0m17:07:05.001920 [debug] [MainThread]: Partial parsing: updated file: br_educacao://models/gold/calendario.sql
+[0m17:07:05.234157 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'a510d59c-59c3-44cb-80f4-0b4c01c3fca9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f94573bb590>]}
+[0m17:07:05.297582 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'a510d59c-59c3-44cb-80f4-0b4c01c3fca9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9456f18610>]}
+[0m17:07:05.300884 [info ] [MainThread]: Found 1 seed, 6 models, 0 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[0m17:07:05.303681 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a510d59c-59c3-44cb-80f4-0b4c01c3fca9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9457f9be10>]}
+[0m17:07:05.307832 [info ] [MainThread]: 
+[0m17:07:05.310997 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m17:07:05.315699 [debug] [ThreadPool]: Acquiring new postgres connection 'list_censo'
+[0m17:07:05.330275 [debug] [ThreadPool]: Using postgres connection "list_censo"
+[0m17:07:05.333176 [debug] [ThreadPool]: On list_censo: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m17:07:05.335604 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:07:05.364400 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.0 seconds
+[0m17:07:05.368799 [debug] [ThreadPool]: On list_censo: Close
+[0m17:07:05.375487 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_censo, now list_censo_public_silver)
+[0m17:07:05.378954 [debug] [ThreadPool]: Acquiring new postgres connection 'list_censo_public_gold'
+[0m17:07:05.381788 [debug] [ThreadPool]: Acquiring new postgres connection 'list_censo_public_bronze'
+[0m17:07:05.391238 [debug] [ThreadPool]: Using postgres connection "list_censo_public_silver"
+[0m17:07:05.397133 [debug] [ThreadPool]: Using postgres connection "list_censo_public_gold"
+[0m17:07:05.404981 [debug] [ThreadPool]: Using postgres connection "list_censo_public_bronze"
+[0m17:07:05.409390 [debug] [ThreadPool]: On list_censo_public_silver: BEGIN
+[0m17:07:05.413783 [debug] [ThreadPool]: On list_censo_public_gold: BEGIN
+[0m17:07:05.417619 [debug] [ThreadPool]: On list_censo_public_bronze: BEGIN
+[0m17:07:05.421589 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:07:05.425894 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:07:05.429184 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:07:05.440802 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m17:07:05.443525 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m17:07:05.445017 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m17:07:05.446167 [debug] [ThreadPool]: Using postgres connection "list_censo_public_silver"
+[0m17:07:05.450589 [debug] [ThreadPool]: Using postgres connection "list_censo_public_gold"
+[0m17:07:05.453973 [debug] [ThreadPool]: Using postgres connection "list_censo_public_bronze"
+[0m17:07:05.457558 [debug] [ThreadPool]: On list_censo_public_silver: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo_public_silver"} */
+select
+      'censo' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_silver'
+    union all
+    select
+      'censo' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_silver'
+    union all
+    select
+      'censo' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_silver'
+  
+[0m17:07:05.461187 [debug] [ThreadPool]: On list_censo_public_gold: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo_public_gold"} */
+select
+      'censo' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_gold'
+    union all
+    select
+      'censo' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_gold'
+    union all
+    select
+      'censo' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_gold'
+  
+[0m17:07:05.465022 [debug] [ThreadPool]: On list_censo_public_bronze: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "list_censo_public_bronze"} */
+select
+      'censo' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_bronze'
+    union all
+    select
+      'censo' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_bronze'
+    union all
+    select
+      'censo' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_bronze'
+  
+[0m17:07:05.478913 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m17:07:05.479515 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.0 seconds
+[0m17:07:05.479969 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.0 seconds
+[0m17:07:05.483739 [debug] [ThreadPool]: On list_censo_public_silver: ROLLBACK
+[0m17:07:05.489324 [debug] [ThreadPool]: On list_censo_public_gold: ROLLBACK
+[0m17:07:05.494357 [debug] [ThreadPool]: On list_censo_public_bronze: ROLLBACK
+[0m17:07:05.498109 [debug] [ThreadPool]: On list_censo_public_silver: Close
+[0m17:07:05.501003 [debug] [ThreadPool]: On list_censo_public_gold: Close
+[0m17:07:05.503094 [debug] [ThreadPool]: On list_censo_public_bronze: Close
+[0m17:07:05.521425 [debug] [MainThread]: Using postgres connection "master"
+[0m17:07:05.525242 [debug] [MainThread]: On master: BEGIN
+[0m17:07:05.529081 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:07:05.537658 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m17:07:05.541474 [debug] [MainThread]: Using postgres connection "master"
+[0m17:07:05.545476 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m17:07:05.562686 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m17:07:05.569088 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a510d59c-59c3-44cb-80f4-0b4c01c3fca9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9457391d50>]}
+[0m17:07:05.572954 [debug] [MainThread]: On master: ROLLBACK
+[0m17:07:05.577346 [debug] [MainThread]: Using postgres connection "master"
+[0m17:07:05.581064 [debug] [MainThread]: On master: BEGIN
+[0m17:07:05.585648 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m17:07:05.589322 [debug] [MainThread]: On master: COMMIT
+[0m17:07:05.592771 [debug] [MainThread]: Using postgres connection "master"
+[0m17:07:05.596179 [debug] [MainThread]: On master: COMMIT
+[0m17:07:05.600009 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m17:07:05.603486 [debug] [MainThread]: On master: Close
+[0m17:07:05.607769 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m17:07:05.611800 [info ] [MainThread]: 
+[0m17:07:05.624258 [debug] [Thread-1 (]: Began running node seed.br_educacao.bolsas-de-cotas-concedidas
+[0m17:07:05.627057 [info ] [Thread-1 (]: 1 of 1 START seed file public_bronze.bolsas-de-cotas-concedidas ................ [RUN]
+[0m17:07:05.631919 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_censo_public_bronze, now seed.br_educacao.bolsas-de-cotas-concedidas)
+[0m17:07:05.635015 [debug] [Thread-1 (]: Began compiling node seed.br_educacao.bolsas-de-cotas-concedidas
+[0m17:07:05.640729 [debug] [Thread-1 (]: Timing info for seed.br_educacao.bolsas-de-cotas-concedidas (compile): 17:07:05.640201 => 17:07:05.640210
+[0m17:07:05.643224 [debug] [Thread-1 (]: Began executing node seed.br_educacao.bolsas-de-cotas-concedidas
+[0m17:07:11.519556 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:07:11.522512 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: BEGIN
+[0m17:07:11.525134 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:07:11.532753 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m17:07:11.535412 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:07:11.537711 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "inep_postgres", "target_name": "dev", "node_id": "seed.br_educacao.bolsas-de-cotas-concedidas"} */
+truncate table "censo"."public_bronze"."bolsas-de-cotas-concedidas"
+[0m17:07:11.547464 [debug] [Thread-1 (]: SQL status: TRUNCATE TABLE in 0.0 seconds
+[0m17:07:34.324565 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:07:34.328504 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:07:34.569957 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m17:07:57.513004 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:07:57.529224 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:07:57.743704 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m17:08:19.886787 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:08:19.890979 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:08:20.081970 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m17:08:42.957202 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:08:42.960880 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:08:43.151790 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m17:09:05.490389 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:09:05.493868 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:09:05.701526 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m17:09:27.905294 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:09:27.908801 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:09:28.114129 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m17:09:50.333722 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:09:50.337248 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:09:50.530653 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m17:10:12.537846 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:10:12.541656 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:10:12.730595 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m17:10:34.852746 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:10:34.856546 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:10:35.035213 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m17:10:58.283835 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:10:58.288363 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:10:58.552045 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
+[0m17:11:21.579201 [debug] [Thread-1 (]: Using postgres connection "seed.br_educacao.bolsas-de-cotas-concedidas"
+[0m17:11:21.583516 [debug] [Thread-1 (]: On seed.br_educacao.bolsas-de-cotas-concedidas: 
+          insert into "censo"."public_bronze"."bolsas-de-cotas-concedidas" ("_id", "ano", "instituicaoexecutora_sigla", "instituicaoexecutora_nome", "programa", "idbolsa", "bolsista", "valortotalprevisto", "datadisponibilizacao") values
+          (%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s...
+[0m17:11:21.775432 [debug] [Thread-1 (]: SQL status: INSERT 0 10000 in 0.0 seconds
