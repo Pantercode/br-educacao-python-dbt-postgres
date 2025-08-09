@@ -4,7 +4,7 @@ inep_postgres:
     dev:
       type: postgres
       host: "{{ env_var('POSTGRES_HOST') | default('postgres') }}"
-      port: "{{ env_var('POSTGRES_PORT') | int | default(5432) }}"
+      port: "{{ env_var('POSTGRES_PORT') | int | default(5433) }}"
       user: "{{ env_var('POSTGRES_USER') | default('postgres') }}"
       password: "{{ env_var('POSTGRES_PASSWORD') | default('123') }}"
       dbname: "{{ env_var('POSTGRES_DB') | default('censo') }}"

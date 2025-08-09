@@ -16407,3 +16407,40 @@ drop table if exists "censo"."public_gold"."gold_instituicoes__dbt_backup" casca
 [0m02:43:57.174348 [debug] [MainThread]: Command `dbt run` succeeded at 02:43:57.173868 after 5.65 seconds
 [0m02:43:57.178573 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f68200bc490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f68200bc510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6820240e90>]}
 [0m02:43:57.183902 [debug] [MainThread]: Flushing usage events
+01:17:35.729559 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001880E8E4D90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001880F88C190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001880F88F880>]}
+
+
+============================== 01:17:35.734057 | 07fb2622-8e5a-4dd7-b3ac-56938b0f3d6a ==============================
+01:17:35.734057 [info ] [MainThread]: Running with dbt=1.10.7
+01:17:35.739491 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'C:\\Users\\marcell.oliveira\\Downloads\\extract_orquest_dbt\\br-educacao-airflow-dbt\\dbt\\logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\marcell.oliveira\\.dbt', 'use_colors': 'False', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt --no-write-json --no-use-colors --no-populate-cache debug', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+01:17:35.771928 [info ] [MainThread]: dbt version: 1.10.7
+01:17:35.771928 [info ] [MainThread]: python version: 3.10.11
+01:17:35.771928 [info ] [MainThread]: python path: C:\Users\marcell.oliveira\.vscode\extensions\.turntable-venv\Scripts\python.exe
+01:17:35.779950 [info ] [MainThread]: os info: Windows-10-10.0.26100-SP0
+01:17:35.788469 [info ] [MainThread]: Using profiles dir at C:\Users\marcell.oliveira\.dbt
+01:17:35.790628 [info ] [MainThread]: Using profiles.yml file at C:\Users\marcell.oliveira\.dbt\profiles.yml
+01:17:35.791636 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\marcell.oliveira\Downloads\extract_orquest_dbt\br-educacao-airflow-dbt\dbt\dbt_project.yml
+01:17:36.584458 [info ] [MainThread]: Configuration:
+01:17:36.593337 [info ] [MainThread]:   profiles.yml file [ERROR invalid]
+01:17:36.593337 [info ] [MainThread]:   dbt_project.yml file [OK found and valid]
+01:17:36.593337 [info ] [MainThread]: Required dependencies:
+01:17:36.593337 [debug] [MainThread]: Executing "git --help"
+01:17:36.779851 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+01:17:36.782559 [debug] [MainThread]: STDERR: "b''"
+01:17:36.784791 [info ] [MainThread]:  - git [OK found]
+
+01:17:36.784791 [info ] [MainThread]: Connection test skipped since no profile was found
+01:17:36.788254 [info ] [MainThread]: 1 check failed:
+01:17:36.788254 [info ] [MainThread]: Profile loading failed for the following reason:
+Runtime Error
+  
+  dbt encountered an error while trying to read your profiles.yml file.
+  
+  The profiles.yml file at C:\Users\marcell.oliveira\.dbt\profiles.yml is empty
+  
+
+
+01:17:36.788254 [debug] [MainThread]: Command `dbt debug` failed at 01:17:36.788254 after 1.23 seconds
+01:17:36.795416 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001880E8E4D90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001880F88C190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001880F88D8D0>]}
+01:17:36.795416 [debug] [MainThread]: Flushing usage events
+01:17:37.894243 [debug] [MainThread]: An error was encountered while trying to flush usage events

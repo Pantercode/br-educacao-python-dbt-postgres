@@ -42,7 +42,7 @@ services:
         condition: service_healthy
 
   postgres:
-    image: postgres:9.3
+    image: postgres:17
     container_name: inep-postgres
     environment:
       - POSTGRES_DB=${POSTGRES_DB}

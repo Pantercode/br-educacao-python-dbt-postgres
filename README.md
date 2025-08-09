@@ -24,7 +24,7 @@ API INEP/IBGE ─▶ Python extractor (pipeline) ─▶ dbt seed ─▶ PostgreS
 
 * **pipeline**: contêiner Python que instala dependências, baixa CSVs e executa `dbt seed && dbt run`
 * **dbt-cli**: imagem oficial para comandos interativos (`dbt run`, `dbt test`, etc.)
-* **postgres**: banco PostgreSQL 9.3, exposto em `localhost:5432`
+* **postgres**: banco PostgreSQL 17, exposto em `localhost:5433`
 
 ---
 
