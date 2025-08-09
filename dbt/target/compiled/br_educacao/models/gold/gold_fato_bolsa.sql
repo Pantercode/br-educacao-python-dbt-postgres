@@ -6,5 +6,5 @@ SELECT
     id_bolsa,
     valortotalprevisto,
     data_disponibilizacao
-FROM "censo"."silver"."silver_bolsas_concedidas"
+FROM "censo"."public_silver"."silver_bolsas_concedidas"
 WHERE 1 = 1

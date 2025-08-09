@@ -2,7 +2,7 @@
   
     
 
-  create  table "censo"."gold"."gold_bolsistas__dbt_tmp"
+  create  table "censo"."public_gold"."gold_bolsistas__dbt_tmp"
   
   
     as
@@ -22,7 +22,7 @@ WITH BOLSISTA as (
                PARTITION BY id_bolsa
             ORDER BY bolsista
             ) AS rn
-        FROM "censo"."silver"."silver_bolsas_concedidas"
+        FROM "censo"."public_silver"."silver_bolsas_concedidas"
         WHERE bolsista IS NOT NULL
           AND bolsista != ''
           AND id_bolsa IS NOT NULL

@@ -9,4 +9,4 @@ inep_postgres:
       password: "{{ env_var('POSTGRES_PASSWORD') | default('123') }}"
       dbname: "{{ env_var('POSTGRES_DB') | default('censo') }}"
       schema: public
-      threads: 4
+      threads: 1

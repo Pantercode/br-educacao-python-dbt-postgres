@@ -2,7 +2,7 @@
   
     
 
-  create  table "censo"."gold"."gold_fato_bolsa__dbt_tmp"
+  create  table "censo"."public_gold"."gold_fato_bolsa__dbt_tmp"
   
   
     as
@@ -16,7 +16,7 @@ SELECT
     id_bolsa,
     valortotalprevisto,
     data_disponibilizacao
-FROM "censo"."silver"."silver_bolsas_concedidas"
+FROM "censo"."public_silver"."silver_bolsas_concedidas"
 WHERE 1 = 1
   );
   

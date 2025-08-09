@@ -3,7 +3,7 @@ WITH LIMITES AS (
   SELECT
     MIN(CAST(data_disponibilizacao AS DATE)) AS data_min,
     MAX(CAST(data_disponibilizacao AS DATE)) AS data_max
-FROM "censo"."silver"."silver_bolsas_concedidas"
+FROM "censo"."public_silver"."silver_bolsas_concedidas"
 ),
 
 DATAS AS (

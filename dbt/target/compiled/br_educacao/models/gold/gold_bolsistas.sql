@@ -12,7 +12,7 @@ WITH BOLSISTA as (
                PARTITION BY id_bolsa
             ORDER BY bolsista
             ) AS rn
-        FROM "censo"."silver"."silver_bolsas_concedidas"
+        FROM "censo"."public_silver"."silver_bolsas_concedidas"
         WHERE bolsista IS NOT NULL
           AND bolsista != ''
           AND id_bolsa IS NOT NULL

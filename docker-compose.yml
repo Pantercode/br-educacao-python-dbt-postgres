@@ -17,10 +17,7 @@ services:
       apt-get update && \
       apt-get install -y gcc g++ libpq-dev && \
       pip install --upgrade pip && \
-      pip install --no-cache-dir -r requirements.txt && \
-      dbt deps --project-dir dbt && \
-      dbt seed --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres && \
-      dbt run --project-dir dbt --profiles-dir /opt/app/dbt/profiles --profile inep_postgres
+      pip install --no-cache-dir -r requirements.txt
       "
 
   dbt-cli:
@@ -34,8 +31,15 @@ services:
       - ./dbt:/opt/dbt
       - ./.env:/opt/dbt/.env:ro
     working_dir: /opt/dbt
-    entrypoint: ["/bin/sh", "-c"]
-    command: "dbt seed --project-dir /opt/dbt --profiles-dir /opt/dbt/profiles --profile inep_postgres"
+    command: >
+      bash -c "
+      dbt deps && \
+      dbt seed && \
+      dbt run
+      "
+    depends_on:
+      postgres:
+        condition: service_healthy
 
   postgres:
     image: postgres:9.3

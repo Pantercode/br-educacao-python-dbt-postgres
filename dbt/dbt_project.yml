@@ -13,16 +13,18 @@ seeds:
 
 models:
   br_educacao:
-    +materialized: view
-
+    
+    # Camada RAW
     raw:
-      +schema: bronze
+      +schema: raw
       +materialized: view
 
+    # Camada SILVER
     silver:
       +schema: silver
       +materialized: table
 
+    # Camada GOLD
     gold:
       +schema: gold
       +materialized: table

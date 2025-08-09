@@ -2,7 +2,7 @@
   
     
 
-  create  table "censo"."silver"."silver_bolsas_concedidas__dbt_tmp"
+  create  table "censo"."public_silver"."silver_bolsas_concedidas__dbt_tmp"
   
   
     as
@@ -20,7 +20,7 @@ SELECT
     CAST(bolsista AS TEXT)                         as bolsista,
     CAST(valortotalprevisto AS double precision) as valortotalprevisto,
     CAST(datadisponibilizacao AS DATE) data_disponibilizacao
-FROM "censo"."bronze"."raw_bolsas_concedidas" 
+FROM "censo"."public_raw"."raw_bolsas_concedidas" 
 WHERE 1 = 1
   );
   

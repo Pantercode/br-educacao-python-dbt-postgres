@@ -2,7 +2,7 @@
   
     
 
-  create  table "censo"."gold"."gold_instituicoes__dbt_tmp"
+  create  table "censo"."public_gold"."gold_instituicoes__dbt_tmp"
   
   
     as
@@ -18,7 +18,7 @@ WITH INSTITUICAO AS (
         INITCAP(CAST(instituicaoexecutora_sigla AS text)) AS sigla_instituicao,
         INITCAP(CAST(instituicaoexecutora_nome   AS text)) AS nome_instituicao,
         INITCAP(CAST(programa                  AS text)) AS programa
-    from "censo"."silver"."silver_bolsas_concedidas"
+    from "censo"."public_silver"."silver_bolsas_concedidas"
 ),
 DEDUP AS (
     SELECT
