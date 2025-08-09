@@ -2,27 +2,43 @@
   
     
 
-  create  table "censo"."public_gold"."instituicoes__dbt_tmp"
+  create  table "censo"."public_public_gold"."instituicoes__dbt_tmp"
   
   
     as
   
   (
-    WITH INSTITUICAO AS (
+    
+
+
+
+WITH INSTITUICAO AS (
     SELECT
-        CAST(_id AS TEXT) AS id,
-        INITCAP(CAST(instituicaoexecutor_sigla AS TEXT)) AS sigla_instituicao,
-        INITCAP(CAST(instituicaoexecutor_nome AS TEXT)) AS nome_instituicao,
-        INITCAP(CAST(programa AS TEXT)) AS programa,
+        id,
+        INITCAP(CAST(instituicaoexecutora_sigla AS text)) AS sigla_instituicao,
+        INITCAP(CAST(instituicaoexecutora_nome   AS text)) AS nome_instituicao,
+        INITCAP(CAST(programa                  AS text)) AS programa
+    from "censo"."public_public_silver"."silver_bolsas_concedidas"
+),
+DEDUP AS (
+    SELECT
+        id,
+        sigla_instituicao,
+        nome_instituicao,
+        programa,
         ROW_NUMBER() OVER (
-            PARTITION BY _id
-            ORDER BY COALESCE(instituicaoexecutor_sigla, instituicaoexecutor_nome, programa) DESC
-        ) AS row_num
-    FROM "censo"."public_bronze"."bolsas-de-cotas-concedidas"
-    WHERE 1 = 1
+            PARTITION BY id
+            ORDER BY coalesce(sigla_instituicao, nome_instituicao, programa) DESC
+        ) AS rn
+    FROM INSTITUICAO
+    WHERE id is not null
 )
-SELECT *
-FROM INSTITUICAO
-WHERE row_num = 1;
+SELECT
+    id,
+    sigla_instituicao,
+    nome_instituicao,
+    programa
+FROM DEDUP
+WHERE rn = 1
   );
   

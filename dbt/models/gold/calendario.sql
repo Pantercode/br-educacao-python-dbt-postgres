@@ -1,4 +1,4 @@
-{{ config(schema='gold',materialized='table', alias='gold_calendario') }}
+{{ config(schema='public_gold',materialized='table', alias='calendario') }}
 WITH LIMITES AS (
   SELECT
     MIN(CAST(data_disponibilizacao AS DATE)) AS data_min,

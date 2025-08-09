@@ -1,6 +1,6 @@
 {% macro on_run_start() %}
   {# Lista de schemas que seu projeto usa #}
-  {% set schemas = ['bronze','silver','gold'] %}
+  {% set schemas = ['raw','silver','gold'] %}
 
   {% for s in schemas %}
     {% do adapter.create_schema(

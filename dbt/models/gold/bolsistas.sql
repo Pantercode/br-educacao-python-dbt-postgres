@@ -1,4 +1,4 @@
-{{ config(schema='gold', materialized='table', alias='gold_bolsistas') }}
+{{ config(schema='public_gold', materialized='table', alias='bolsistas') }}
 
 WITH BOLSISTA as (
     SELECT

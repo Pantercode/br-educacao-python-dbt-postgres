@@ -140,6 +140,24 @@ models:
 
 ---
 
+## ✅ Projeto Concluído
+
+Este projeto foi **finalizado com sucesso** ✅  
+Todas as etapas de desenvolvimento, configuração, testes e execução foram concluídas.  
+O pipeline está funcional, executando a extração, transformação e carga (ETL) dos dados utilizando **Python, dbt e PostgreSQL via Docker**.
+
+### 📌 Resumo das entregas:
+- Ambiente Docker configurado (Postgres + dbt + pipeline Python).
+- Seeds e models do dbt executando com sucesso.
+- Estrutura de schemas (`public_raw`, `public_silver`, `public_gold`) criada e populada.
+- Processos documentados para instalação, execução e contribuição.
+
+
+<p align="center">
+  <img src="image-1.png" alt="Resumo do Projeto" width="60%">
+</p>
+
+
 ## ✍️ Contribuindo
 
 1. Faça um *fork* e crie uma branch com uma feature ou correção.
@@ -167,3 +185,5 @@ Veja o arquivo `LICENSE` para mais informações.
 ✅ Dados versionados
 ✅ Preparado para orquestração futura
 ✅ 100% Docker
+
+

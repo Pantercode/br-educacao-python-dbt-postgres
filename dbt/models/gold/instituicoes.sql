@@ -1,4 +1,4 @@
-{{ config(schema='gold',materialized='table', alias='gold_instituicoes') }}
+{{ config(schema='public_gold',materialized='table', alias='instituicoes') }}
 
 
 

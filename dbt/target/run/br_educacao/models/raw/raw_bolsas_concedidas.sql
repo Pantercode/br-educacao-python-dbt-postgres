@@ -1,5 +1,5 @@
 
-  create view "censo"."public_raw"."raw_bolsas_concedidas__dbt_tmp"
+  create view "censo"."public_public_raw"."raw_bolsas_concedidas__dbt_tmp"
     
     
   as (

@@ -1,4 +1,4 @@
-{{ config(schema='silver', materialized='table', alias='silver_bolsas_concedidas') }}
+{{ config(schema='public_silver', materialized='table', alias='silver_bolsas_concedidas') }}
 
 SELECT
     CAST(_id AS TEXT)                               as id,

@@ -2,17 +2,18 @@
   
     
 
-  create  table "censo"."public_gold"."calendario__dbt_tmp"
+  create  table "censo"."public_public_gold"."calendario__dbt_tmp"
   
   
     as
   
   (
-    WITH LIMITES AS (
+    
+WITH LIMITES AS (
   SELECT
-    MIN(CAST(datadisponibilizacao AS DATE)) AS data_min,
-    MAX(CAST(datadisponibilizacao AS DATE)) AS data_max
-  FROM "censo"."public_bronze"."bolsas-de-cotas-concedidas"
+    MIN(CAST(data_disponibilizacao AS DATE)) AS data_min,
+    MAX(CAST(data_disponibilizacao AS DATE)) AS data_max
+FROM "censo"."public_public_silver"."silver_bolsas_concedidas"
 ),
 
 DATAS AS (
@@ -80,6 +81,5 @@ CALENDARIO AS (
 
 SELECT * FROM CALENDARIO
 WHERE 1 = 1
-ORDER BY data ASC;
   );
   

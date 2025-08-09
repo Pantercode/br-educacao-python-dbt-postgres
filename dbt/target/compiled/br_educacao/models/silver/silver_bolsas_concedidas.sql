@@ -10,5 +10,5 @@ SELECT
     CAST(bolsista AS TEXT)                         as bolsista,
     CAST(valortotalprevisto AS double precision) as valortotalprevisto,
     CAST(datadisponibilizacao AS DATE) data_disponibilizacao
-FROM "censo"."public_raw"."raw_bolsas_concedidas" 
+FROM "censo"."public_public_raw"."raw_bolsas_concedidas" 
 WHERE 1 = 1
